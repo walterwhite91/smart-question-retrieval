@@ -34,11 +34,11 @@ retrieval complexity.
 
 ## 🧠 Data Structures Used
 
-  Structure        Purpose
-  ---------------- -------------------------------
-  Hash Map         O(1) exact lookup
-  Inverted Index   Efficient candidate selection
-  Set              Fast token overlap scoring
+| Structure      | Purpose                        |
+| -------------- | ------------------------------ |
+| Hash Map       | O(1) exact match lookup        |
+| Inverted Index | Efficient candidate selection  |
+| Set            | Fast token overlap computation |
 
 ------------------------------------------------------------------------
 
