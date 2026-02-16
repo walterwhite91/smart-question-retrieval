@@ -133,7 +133,7 @@ pdflatex report.tex
 
 Mimansh Pokhrel\
 Kathmandu University\
-B.Tech Computer Science
+B.Sc. Computer Science
 
 ------------------------------------------------------------------------
 
