@@ -131,7 +131,7 @@ pdflatex report.tex
 
 ## 👨‍💻 Author
 
-Mimansh Neupane\
+Mimansh Pokhrel\
 Kathmandu University\
 B.Tech Computer Science
 
