@@ -45,7 +45,6 @@ retrieval complexity.
 ## 📂 Project Structure
 
     smart-question-retrieval/
-    │
     ├── src/
     │   ├── loader.py
     │   ├── normalizer.py
@@ -59,9 +58,19 @@ retrieval complexity.
     │   └── dataset.json
     │
     ├── report/
-    │   ├── report.tex
     │   ├── chapters/
-    │   └── figures/
+    │   │   ├── introduction.tex
+    │   │   ├── methodology.tex
+    │   │   ├── results.tex
+    │   │   ├── conclusion.tex
+    │   │   └── appendix.tex
+    │   │
+    │   ├── figures/
+    │   │   └── cli_execution.png
+    │   │
+    │   ├── report.tex
+    │   ├── projectreport.cls
+    │   └── logo-200.png
     │
     ├── LICENSE
     ├── README.md
