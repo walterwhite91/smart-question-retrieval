@@ -72,7 +72,7 @@ retrieval complexity.
 ## ⚙️ Installation
 
 ``` bash
-git clone https://github.com/yourusername/smart-question-retrieval.git
+git clone https://github.com/walterwhite91/smart-question-retrieval.git
 cd smart-question-retrieval
 ```
 
