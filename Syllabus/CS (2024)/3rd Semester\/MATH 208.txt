@@ -1,0 +1,219 @@
+==============================
+COURSE: MATH 208
+TITLE: Statistics and Probability
+==============================
+
+CHAPTER 1: Introduction to Statistics and Data Description
+topics:
+- graphical presentation of data
+- dot plots
+- scatter plots
+- frequency distribution
+- histogram
+- stem-and-leaf plot
+- box plot
+- Pareto chart
+- numerical description of data
+- mean
+- median
+- mode
+- mean of combined groups
+- comparison of mean median mode
+- range
+- quartile deviation
+- standard deviation
+- variance
+- coefficient of variation
+- skewness
+- kurtosis
+
+keywords:
+statistics, data description, graphical presentation, dot plot, scatter plot, frequency distribution,
+histogram, stem and leaf, box plot, Pareto chart, central tendency, mean, median, mode,
+combined mean, comparison of mean median mode, dispersion, range, quartile deviation,
+standard deviation, variance, coefficient of variation, skewness, kurtosis
+
+match_aliases:
+data presentation, mean median mode, dispersion, histogram, boxplot, cv, skewness
+
+
+CHAPTER 2: Probability
+topics:
+- review of sets
+- random experiment
+- sample space
+- events
+- simple and composite events
+- mutually exclusive events
+- collectively exhaustive events
+- independent events
+- probability definition and assignment
+- finite sample space and enumeration
+- conditional probability
+- partitions
+- total probability
+- Bayes theorem
+- applications of Bayes theorem
+
+keywords:
+probability, sets, random experiment, sample space, event, simple event, composite event,
+mutually exclusive, collectively exhaustive, independent events, probability assignment,
+finite sample space, counting, enumeration, conditional probability, partitions,
+law of total probability, Bayes theorem, posterior probability
+
+match_aliases:
+probability basics, conditional probability, bayes, sample space, events
+
+
+CHAPTER 3: One Dimensional Random Variables
+topics:
+- distribution function
+- discrete random variable
+- continuous random variable
+- mean
+- variance
+
+keywords:
+random variable, one dimensional random variable, distribution function, CDF,
+discrete random variable, continuous random variable, expectation, mean, variance
+
+match_aliases:
+rv, cdf, discrete continuous, mean variance of distribution
+
+
+CHAPTER 4: Functions of One Random Variable and Mathematical Expectation
+topics:
+- equivalent events
+- function of discrete random variable
+- function of continuous random variable
+- mathematical expectation
+
+keywords:
+function of random variable, transformed random variable, equivalent events,
+mathematical expectation, expected value, function of discrete RV, function of continuous RV
+
+match_aliases:
+expectation, transformed variable, expected value
+
+
+CHAPTER 5: Some Important Discrete Distributions
+topics:
+- Bernoulli trials
+- Bernoulli distribution
+- Binomial distribution
+- mean and variance of binomial distribution
+- cumulative binomial distribution
+- applications of binomial distribution
+- Poisson distribution
+- mean and variance of Poisson distribution
+- Poisson approximation to binomial
+
+keywords:
+discrete distributions, Bernoulli trial, Bernoulli distribution, binomial distribution,
+mean of binomial, variance of binomial, cumulative binomial, binomial application,
+Poisson distribution, mean of Poisson, variance of Poisson, Poisson approximation
+
+match_aliases:
+bernoulli, binomial, poisson, discrete distribution
+
+
+CHAPTER 6: The Normal Distribution
+topics:
+- properties of normal distribution
+- mean and variance of normal distribution
+- normal cumulative distribution
+- standard normal distribution
+- problem solving procedure
+- central limit theorem
+- normal approximation to binomial distribution
+
+keywords:
+normal distribution, Gaussian distribution, properties of normal curve, mean and variance,
+cumulative normal distribution, standard normal, Z distribution, Z score, CLT,
+central limit theorem, normal approximation to binomial
+
+match_aliases:
+normal curve, z-score, clt, gaussian, normal approximation
+
+
+CHAPTER 7: Random Samples and Sampling Distributions
+topics:
+- population and sample
+- census and sampling
+- estimate and estimator
+- parameter and statistic
+- random samples
+- statistics and sampling distributions
+- chi-square distribution
+- t-distribution
+- F-distribution
+
+keywords:
+population, sample, census, sampling, estimate, estimator, parameter, statistic,
+random sample, sampling distribution, chi-square distribution, t distribution, F distribution
+
+match_aliases:
+sampling, estimator, statistic, chi square, t, f distribution
+
+
+CHAPTER 8: Estimation
+topics:
+- point estimation
+- interval estimation
+- properties of estimators
+- single-sample confidence interval estimation
+- two-sample confidence interval estimation
+- mean and variance estimation
+
+keywords:
+estimation, point estimation, interval estimation, estimator properties, unbiasedness,
+consistency, efficiency, confidence interval, single sample CI, two sample CI,
+mean estimation, variance estimation
+
+match_aliases:
+confidence interval, point estimate, interval estimate, estimator properties
+
+
+CHAPTER 9: Tests of Hypotheses
+topics:
+- tests of hypotheses on single sample
+- tests of hypotheses on two samples
+- mean and variance tests
+
+keywords:
+hypothesis testing, null hypothesis, alternative hypothesis, single sample test,
+two sample test, test on mean, test on variance, level of significance, decision rule
+
+match_aliases:
+test of hypothesis, single sample, two sample, mean test, variance test
+
+
+CHAPTER 10: Simple Linear Regression and Correlation
+topics:
+- simple linear regression
+- interpretation
+- correlation
+- interpretation
+- coefficient of determination
+
+keywords:
+simple linear regression, regression line, least squares, correlation, correlation coefficient,
+interpretation of correlation, coefficient of determination, r, r-square, prediction
+
+match_aliases:
+regression, correlation, r square, linear fit
+
+
+CHAPTER 11: Statistical Quality Control
+topics:
+- statistical process control
+- control charts for measurements
+- control charts for individual measurements
+- control charts for attributes
+
+keywords:
+statistical quality control, SQC, statistical process control, SPC, control charts,
+measurement charts, individual measurement charts, attribute charts, process monitoring
+
+match_aliases:
+quality control, spc, sqc, control chart, attribute chart
