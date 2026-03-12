@@ -14,7 +14,7 @@ fundamental Data Structures concepts including:
 -   Hash Maps (Exact Match Layer)
 -   Inverted Index (Similarity Retrieval Layer)
 -   Set-based Token Overlap Scoring
--   Metadata Filtering (Semester, Subject, Section, Paper Type)
+-   Metadata Filtering (Semester, Subject, Chapter, Section, Paper Type)
 
 The system eliminates brute-force searching and significantly reduces
 retrieval complexity.
@@ -28,6 +28,8 @@ retrieval complexity.
 -   Token-based similarity scoring
 -   Top-k result ranking
 -   CLI-based academic metadata filtering
+-   Chapter-aware filtering and search
+-   `all` command to print all questions in the active filtered scope
 -   Modular architecture
 
 ------------------------------------------------------------------------
@@ -45,43 +47,24 @@ retrieval complexity.
 ## 📂 Project Structure
 
     smart-question-retrieval/
-    ├── src/
-    │   ├── loader.py
-    │   ├── normalizer.py
-    │   ├── hashmap.py
-    │   ├── inverted_index.py
-    │   ├── matcher.py
-    │   ├── cli_select.py
-    │   └── main.py
-    │
-    ├── dataset/
-    │   └── dataset.json
-    │
-    ├── report/
-    │   ├── chapters/
-    │   │   ├── introduction.tex
-    │   │   ├── methodology.tex
-    │   │   ├── results.tex
-    │   │   ├── conclusion.tex
-    │   │   └── appendix.tex
-    │   │
-    │   ├── figures/
-    │   │   └── cli_execution.png
-    │   │
-    │   ├── report.tex
-    │   ├── projectreport.cls
-    │   └── logo-200.png
-    │
+    ├── loader.py
+    ├── normalizer.py
+    ├── hashmap.py
+    ├── inverted_index.py
+    ├── matcher.py
+    ├── cli_select.py
+    ├── main.py
+    ├── dataset.json
+    ├── Syllabus/
     ├── LICENSE
-    ├── README.md
-    └── requirements.txt
+    └── README.md
 
 ------------------------------------------------------------------------
 
 ## ⚙️ Installation
 
 ``` bash
-git clone https://github.com/walterwhite91/smart-question-retrieval.git
+git clone <repository-url>
 cd smart-question-retrieval
 ```
 
@@ -92,17 +75,26 @@ No external dependencies required (pure Python 3).
 ## ▶️ Running the System
 
 ``` bash
-python3 src/main.py dataset/dataset.json
+python3 main.py dataset.json
 ```
 
 The system will prompt for:
 
 -   Semester
 -   Subject
--   Paper Type
--   Section
+-   Filter Mode
 
-Then enter a query to retrieve similar questions.
+Depending on the selected filter mode:
+
+-   Chapter wise -> Chapter
+-   Paper and section wise -> Paper Type, then Section
+-   All -> no additional filter
+
+At the final prompt:
+
+-   Enter a question to retrieve similar questions
+-   Enter `all` to print all questions within the current filtered scope
+-   Enter `exit` or `quit` to stop the program
 
 ------------------------------------------------------------------------
 
