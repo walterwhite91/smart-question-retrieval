@@ -4551,6 +4551,9 @@
     "paper_type": "internal",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4560,6 +4563,9 @@
     "paper_type": "internal",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4569,6 +4575,9 @@
     "paper_type": "internal",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4578,6 +4587,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4587,6 +4599,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4596,6 +4612,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4605,6 +4626,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4614,6 +4638,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4623,6 +4650,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "One Dimensional Random Variables",
+      "Functions of One Random Variable and Mathematical Expectation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4632,6 +4663,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Probability",
+      "Some Important Discrete Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4641,6 +4676,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution"
+    ],
     "family": "math_phys"
   },
   {
@@ -4650,6 +4688,11 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4659,6 +4702,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -4668,6 +4714,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Tests of Hypotheses",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4677,6 +4727,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4686,6 +4739,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4695,6 +4751,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Some Important Discrete Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4704,6 +4763,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Functions of One Random Variable and Mathematical Expectation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4713,6 +4775,10 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Random Samples and Sampling Distributions",
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -4722,6 +4788,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4731,6 +4800,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution",
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4740,6 +4814,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4749,6 +4826,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Tests of Hypotheses",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4758,6 +4839,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4767,6 +4851,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Some Important Discrete Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4776,6 +4863,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Probability",
+      "The Normal Distribution"
+    ],
     "family": "math_phys"
   },
   {
@@ -4785,6 +4876,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4794,6 +4889,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -4803,6 +4902,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4812,6 +4915,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4821,6 +4927,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4830,6 +4939,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4839,6 +4951,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4848,6 +4963,10 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "One Dimensional Random Variables",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4857,6 +4976,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description",
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4866,6 +4989,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution",
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4875,6 +5003,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4884,6 +5016,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4893,6 +5028,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4902,6 +5040,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "One Dimensional Random Variables"
+    ],
     "family": "math_phys"
   },
   {
@@ -4911,6 +5052,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4920,6 +5064,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution"
+    ],
     "family": "math_phys"
   },
   {
@@ -4929,6 +5076,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4938,6 +5089,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -4947,6 +5101,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -4956,6 +5113,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -4965,6 +5125,10 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Random Samples and Sampling Distributions",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -4974,6 +5138,10 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution",
+      "Estimation"
+    ],
     "family": "math_phys"
   },
   {
@@ -4983,6 +5151,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -4992,6 +5163,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Introduction to Statistics and Data Description"
+    ],
     "family": "math_phys"
   },
   {
@@ -5001,6 +5175,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution",
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -5010,6 +5189,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -5019,6 +5202,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Simple Linear Regression and Correlation"
+    ],
     "family": "math_phys"
   },
   {
@@ -5028,6 +5214,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -5037,6 +5226,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "One Dimensional Random Variables"
+    ],
     "family": "math_phys"
   },
   {
@@ -5046,6 +5238,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Some Important Discrete Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5055,6 +5250,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "The Normal Distribution"
+    ],
     "family": "math_phys"
   },
   {
@@ -5064,6 +5262,11 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Estimation",
+      "Tests of Hypotheses",
+      "Random Samples and Sampling Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5073,6 +5276,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -5082,6 +5288,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Some Important Discrete Distributions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5091,6 +5300,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Probability"
+    ],
     "family": "math_phys"
   },
   {
@@ -5100,6 +5312,10 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Random Samples and Sampling Distributions",
+      "Tests of Hypotheses"
+    ],
     "family": "math_phys"
   },
   {
@@ -5109,6 +5325,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Estimation"
+    ],
     "family": "math_phys"
   },
   {
@@ -5118,6 +5337,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Statistical Quality Control"
+    ],
     "family": "math_phys"
   },
   {
@@ -5127,6 +5349,12 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Boolean Algebra and Logic Gates",
+      "Combinational Logic",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5136,6 +5364,12 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Boolean Algebra and Logic Gates",
+      "Simplification of Boolean Functions",
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5145,6 +5379,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic",
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5154,6 +5393,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5163,6 +5406,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5172,6 +5418,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Boolean Algebra and Logic Gates",
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5181,6 +5432,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5190,6 +5445,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5199,6 +5457,12 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Combinational Logic",
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5208,6 +5472,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5217,6 +5485,12 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Combinational Logic",
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5226,6 +5500,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Boolean Algebra and Logic Gates",
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5235,6 +5514,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Combinational Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5244,6 +5527,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Combinational Logic",
+      "Sequential Logic Circuits"
+    ],
     "family": "math_phys"
   },
   {
@@ -5253,6 +5540,12 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes",
+      "Combinational Logic",
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5262,6 +5555,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5271,6 +5568,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Sequential Logic Circuits",
+      "Registers, Counters and Memories"
+    ],
     "family": "math_phys"
   },
   {
@@ -5280,6 +5581,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Boolean Algebra and Logic Gates"
+    ],
     "family": "math_phys"
   },
   {
@@ -5289,6 +5593,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Boolean Algebra and Logic Gates"
+    ],
     "family": "math_phys"
   },
   {
@@ -5298,6 +5605,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes"
+    ],
     "family": "math_phys"
   },
   {
@@ -5307,6 +5617,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes"
+    ],
     "family": "math_phys"
   },
   {
@@ -5316,6 +5629,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Number Systems and Codes"
+    ],
     "family": "math_phys"
   },
   {
@@ -5325,6 +5641,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5334,6 +5653,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack",
+      "Linear Data Structure - Queue"
+    ],
     "family": "programming"
   },
   {
@@ -5343,6 +5666,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree",
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5352,6 +5679,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5361,6 +5692,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5370,6 +5704,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5379,6 +5716,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5388,6 +5728,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Graph",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5397,6 +5741,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5406,6 +5753,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree"
+    ],
     "family": "programming"
   },
   {
@@ -5415,6 +5765,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack",
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5424,6 +5778,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Graph",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5433,6 +5791,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree"
+    ],
     "family": "programming"
   },
   {
@@ -5442,6 +5803,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Queue",
+      "Hierarchical Data Structure - Tree"
+    ],
     "family": "programming"
   },
   {
@@ -5451,6 +5816,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms"
+    ],
     "family": "programming"
   },
   {
@@ -5460,6 +5828,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5469,6 +5840,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5478,6 +5853,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5487,6 +5865,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Linear Data Structure - Queue",
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5496,6 +5879,11 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Hierarchical Data Structure - Tree",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5505,6 +5893,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5514,6 +5906,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5523,6 +5918,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5532,6 +5930,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5541,6 +5943,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5550,6 +5955,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5559,6 +5967,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5568,6 +5979,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree",
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5577,6 +5992,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5586,6 +6004,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5595,6 +6017,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5604,6 +6029,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms"
+    ],
     "family": "programming"
   },
   {
@@ -5613,6 +6041,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms"
+    ],
     "family": "programming"
   },
   {
@@ -5622,6 +6053,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5631,6 +6065,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5640,6 +6077,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Queue"
+    ],
     "family": "programming"
   },
   {
@@ -5649,6 +6089,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Sorting"
+    ],
     "family": "programming"
   },
   {
@@ -5658,6 +6101,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree"
+    ],
     "family": "programming"
   },
   {
@@ -5667,6 +6113,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5676,6 +6125,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5685,6 +6137,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5694,6 +6149,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms",
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5703,6 +6162,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5712,6 +6174,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5721,6 +6186,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Linked List"
+    ],
     "family": "programming"
   },
   {
@@ -5730,6 +6198,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Hierarchical Data Structure - Tree"
+    ],
     "family": "programming"
   },
   {
@@ -5739,6 +6210,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Graph"
+    ],
     "family": "programming"
   },
   {
@@ -5748,6 +6222,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Searching and Hashing"
+    ],
     "family": "programming"
   },
   {
@@ -5757,6 +6234,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "The Analysis of Algorithms"
+    ],
     "family": "programming"
   },
   {
@@ -5766,6 +6246,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5775,6 +6258,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Stack"
+    ],
     "family": "programming"
   },
   {
@@ -5784,6 +6270,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Linear Data Structure - Queue"
+    ],
     "family": "programming"
   },
   {
@@ -5793,6 +6282,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -5802,6 +6294,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -5811,6 +6306,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -5820,6 +6318,10 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Functions",
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -5829,6 +6331,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5838,6 +6343,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -5847,6 +6356,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -5856,6 +6368,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -5865,6 +6380,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5874,6 +6393,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Logic",
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5883,6 +6406,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -5892,6 +6418,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -5901,6 +6430,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5910,6 +6442,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -5919,6 +6454,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -5928,6 +6466,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -5937,6 +6478,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -5946,6 +6490,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -5955,6 +6502,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -5964,6 +6514,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -5973,6 +6526,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -5982,6 +6538,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -5991,6 +6550,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs",
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6000,6 +6563,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6009,6 +6575,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs",
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6018,6 +6588,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6027,6 +6600,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6036,6 +6612,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -6045,6 +6624,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6054,6 +6636,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6063,6 +6648,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6072,6 +6660,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6081,6 +6672,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6090,6 +6684,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6099,6 +6696,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6108,6 +6708,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -6117,6 +6720,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -6126,6 +6732,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6135,6 +6744,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -6144,6 +6756,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6153,6 +6768,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6162,6 +6780,11 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Relations and Digraphs",
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6171,6 +6794,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -6180,6 +6806,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6189,6 +6818,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6198,6 +6830,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6207,6 +6842,9 @@
     "paper_type": "endsem",
     "section": "E",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6216,6 +6854,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6225,6 +6866,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6234,6 +6878,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6243,6 +6890,9 @@
     "paper_type": "endsem",
     "section": "C",
     "semester": 3,
+    "chapter": [
+      "Semigroups and Groups"
+    ],
     "family": "math_phys"
   },
   {
@@ -6252,6 +6902,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -6261,6 +6914,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6270,6 +6926,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6279,6 +6938,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6288,6 +6950,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6297,6 +6962,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6306,6 +6974,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Relations and Digraphs"
+    ],
     "family": "math_phys"
   },
   {
@@ -6315,6 +6987,11 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Logic",
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -6324,6 +7001,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6333,6 +7013,10 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Fundamentals",
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -6342,6 +7026,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Functions"
+    ],
     "family": "math_phys"
   },
   {
@@ -6351,6 +7038,9 @@
     "paper_type": "endsem",
     "section": "D",
     "semester": 3,
+    "chapter": [
+      "Order Relations and Structures"
+    ],
     "family": "math_phys"
   },
   {
@@ -6360,6 +7050,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6369,6 +7062,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6378,6 +7074,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Fundamentals"
+    ],
     "family": "math_phys"
   },
   {
@@ -6387,6 +7086,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6396,6 +7098,10 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Relations and Digraphs",
+      "Graph Theory"
+    ],
     "family": "math_phys"
   },
   {
@@ -6405,6 +7111,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Logic"
+    ],
     "family": "math_phys"
   },
   {
@@ -6414,6 +7123,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6423,6 +7135,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6432,6 +7148,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6441,6 +7161,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6450,6 +7173,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6459,6 +7185,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6468,6 +7197,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6477,6 +7210,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6486,6 +7222,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6495,6 +7234,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6504,6 +7246,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6513,6 +7258,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor",
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6522,6 +7271,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6531,6 +7283,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6540,6 +7295,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6549,6 +7307,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6558,6 +7319,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6567,6 +7332,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6576,6 +7344,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6585,6 +7356,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6594,6 +7369,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6603,6 +7382,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6612,6 +7394,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6621,6 +7406,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6630,6 +7418,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6639,6 +7431,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6648,6 +7443,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor",
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6657,6 +7456,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6666,6 +7469,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6675,6 +7482,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6684,6 +7494,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6693,6 +7506,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6702,6 +7518,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6711,6 +7530,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6720,6 +7542,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6729,6 +7554,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6738,6 +7566,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6747,6 +7578,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6756,6 +7590,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6765,6 +7602,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6774,6 +7614,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor",
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6783,6 +7627,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6792,6 +7639,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor",
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6801,6 +7652,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6810,6 +7664,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6819,6 +7676,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6828,6 +7688,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6837,6 +7700,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6846,6 +7712,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6855,6 +7724,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor",
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6864,6 +7737,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6873,6 +7749,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6882,6 +7762,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6891,6 +7775,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6900,6 +7787,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6909,6 +7800,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6918,6 +7812,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6927,6 +7824,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6936,6 +7836,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor",
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6945,6 +7849,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6954,6 +7861,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6963,6 +7873,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Power Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -6972,6 +7885,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6981,6 +7897,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -6990,6 +7909,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -6999,6 +7921,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -7008,6 +7933,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor",
+      "Field Effect Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -7017,6 +7946,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Field Effect Transistor",
+      "Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -7026,6 +7959,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -7035,6 +7972,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -7044,6 +7984,9 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -7053,6 +7996,10 @@
     "paper_type": "endsem",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -7062,6 +8009,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes"
+    ],
     "family": "math_phys"
   },
   {
@@ -7071,6 +8021,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   },
   {
@@ -7080,6 +8033,10 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Diodes",
+      "Operational Amplifiers"
+    ],
     "family": "math_phys"
   },
   {
@@ -7089,6 +8046,9 @@
     "paper_type": "internal",
     "section": "B",
     "semester": 3,
+    "chapter": [
+      "Bipolar Junction Transistor"
+    ],
     "family": "math_phys"
   }
 ]

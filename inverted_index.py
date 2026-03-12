@@ -20,6 +20,12 @@ class InvertedIndex:
                     if isinstance(kw, str):
                         tokens += tokenize(kw)
 
+            chapters = obj.get("chapter") or []
+            if isinstance(chapters, list):
+                for chapter in chapters:
+                    if isinstance(chapter, str):
+                        tokens += tokenize(chapter)
+
             for t in set(tokens):
                 self.index.setdefault(t, set()).add(qid)
 
