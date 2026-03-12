@@ -1,0 +1,183 @@
+==============================
+COURSE: COMP 202
+TITLE: Data Structures and Algorithms
+==============================
+
+CHAPTER 1: The Analysis of Algorithms
+topics:
+- introduction to algorithm
+- characteristics of algorithm
+- finiteness
+- definiteness
+- input
+- output
+- effectiveness
+- array
+- pointers
+- structures
+- asymptotic analysis
+- big O notation
+- omega notation
+- theta notation
+
+keywords:
+algorithm, characteristics of algorithm, finiteness, definiteness, input, output, effectiveness,
+array, pointers, structures, struct, asymptotic analysis, time complexity, space complexity,
+Big O, Omega, Theta, growth rate, efficiency analysis
+
+match_aliases:
+algorithm analysis, complexity, big o, theta, omega, pointers, arrays, structure
+
+
+CHAPTER 2: Linear Data Structure – Stack
+topics:
+- definition of stack
+- push
+- pop
+- isEmpty
+- stackTop
+- representing stack in C
+- implementing stack operations in C
+- infix expression
+- prefix expression
+- postfix expression
+- evaluating postfix expression
+- infix to postfix conversion
+
+keywords:
+stack, LIFO, push, pop, isEmpty, stackTop, top of stack, stack in C, array implementation stack,
+linked stack, infix, prefix, postfix, postfix evaluation, infix to postfix, expression conversion,
+operator precedence, associativity
+
+match_aliases:
+stack ds, postfix, infix to postfix, expression evaluation, lifo
+
+
+CHAPTER 3: Linear Data Structure – Queue
+topics:
+- definition of queue
+- remove
+- insert
+- isEmpty
+- ADT specification of queue
+- representing queue in C
+- implementing queue operations in C
+- priority queue
+- ascending priority queue
+- descending priority queue
+- circular queue
+
+keywords:
+queue, FIFO, remove, delete from queue, insert into queue, enqueue, dequeue, isEmpty,
+queue ADT, queue in C, array queue, circular queue, front, rear, priority queue,
+ascending priority queue, descending priority queue
+
+match_aliases:
+queue ds, fifo, enqueue dequeue, circular queue, priority queue
+
+
+CHAPTER 4: Linear Data Structure – Linked List
+topics:
+- definition of linked list
+- inserting nodes
+- removing nodes
+- list traversal
+- linked implementation of stack
+- linked implementation of queue
+- doubly linked list
+- circular linked list
+
+keywords:
+linked list, node, pointer link, insertion, deletion, traversal, singly linked list,
+doubly linked list, circular linked list, linked stack, linked queue, dynamic memory
+
+match_aliases:
+linkedlist, dll, cll, list traversal, insert delete node
+
+
+CHAPTER 5: Hierarchical Data Structure – Tree
+topics:
+- concept and definition of tree
+- root, leaf, right, left, father, son, brother
+- basic operations in binary tree
+- binary search tree
+- searching node in BST
+- insertion in BST
+- deletion in BST
+- application of binary trees
+- binary tree traversals
+- pre-order
+- in-order
+- post-order
+- tree height
+- level
+- depth
+- strictly binary tree
+- complete binary tree
+- almost complete binary tree
+
+keywords:
+tree, binary tree, root, leaf, parent, child, sibling, left subtree, right subtree,
+tree operations, binary search tree, BST, BST search, BST insertion, BST deletion,
+tree traversal, preorder, inorder, postorder, depth first order, symmetric order,
+tree height, level, depth, strictly binary tree, complete binary tree, almost complete binary tree
+
+match_aliases:
+tree ds, bst, traversal, preorder inorder postorder, complete tree
+
+
+CHAPTER 6: Graph
+topics:
+- introduction to graph
+- operations on graph
+- graph representation
+- adjacency matrix
+- adjacency list
+- graph traversal
+- spanning forests
+- depth first search
+- breadth first search
+- minimum spanning tree
+- Kruskal algorithm
+- Prim algorithm
+
+keywords:
+graph, vertex, edge, graph representation, adjacency matrix, adjacency list,
+graph traversal, spanning forest, DFS, depth first search, BFS, breadth first search,
+minimum spanning tree, MST, Kruskal, Prim, connected graph
+
+match_aliases:
+graph theory ds, dfs bfs, mst, kruskal, prim, adjacency matrix list
+
+
+CHAPTER 7: Sorting
+topics:
+- selection sort
+- insertion sort
+- quick sort
+- merge sort
+- heap sort
+
+keywords:
+sorting, selection sort, insertion sort, quick sort, merge sort, heap sort,
+sorting algorithm, divide and conquer sorting, comparison sort, in-place sort
+
+match_aliases:
+sort, quicksort, mergesort, heapsort, insertion, selection
+
+
+CHAPTER 8: Searching and Hashing
+topics:
+- sequential search
+- binary search
+- hashing
+- hash function
+- hash tables
+- collision resolution techniques
+
+keywords:
+searching, sequential search, linear search, binary search, hashing, hash function,
+hash table, collision, collision resolution, open addressing, chaining, search technique
+
+match_aliases:
+search, hashing, linear search, binary, hash table, collisions

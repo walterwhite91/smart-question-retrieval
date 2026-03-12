@@ -1,0 +1,165 @@
+==============================
+COURSE: EEEG 211
+TITLE: Electronics Engineering I
+==============================
+
+CHAPTER 1: Diodes
+topics:
+- PN junction characteristics
+- diode characteristics
+- half wave rectifier
+- full wave rectifier
+- bridge rectifier
+- DC output
+- RMS output
+- rectifier efficiency
+- smoothing
+- ripple factor
+- conduction angle
+- RC filtering
+- regulation
+- Zener diode
+- LED
+
+keywords:
+PN junction, diode, V-I characteristics, forward bias, reverse bias, breakdown, rectification,
+half wave rectifier, full wave rectifier, bridge rectifier, DC output voltage, RMS value,
+efficiency, ripple, ripple factor, smoothing capacitor, filter circuit, RC filter, conduction angle,
+voltage regulation, Zener regulation, voltage stabilizer, LED, light emitting diode
+
+match_aliases:
+diode circuits, rectifiers, zener, regulator, ripple, filter, pn junction, led, power supply basics
+
+
+CHAPTER 2: Bipolar Junction Transistor
+topics:
+- basic operation of PNP transistor
+- basic operation of NPN transistor
+- CE configuration
+- CB configuration
+- CC configuration
+- CE characteristics
+- transistor as a switch
+- transistor as a simple amplifier
+- thermal instability
+- biasing arrangements
+- load line
+- operating point
+- saturation
+- cut-off
+- non-linear region distortion
+- transistor hybrid parameters
+- small signal hybrid equivalent circuit
+
+keywords:
+BJT, bipolar junction transistor, PNP, NPN, transistor action, common emitter, CE, common base,
+CB, common collector, CC, CE characteristics, switching transistor, transistor switch,
+transistor amplifier, thermal runaway, thermal instability, biasing, fixed bias, voltage divider bias,
+load line, Q point, operating point, saturation region, cut off region, active region, distortion,
+nonlinear distortion, h-parameters, hybrid parameters, small signal model, equivalent circuit
+
+match_aliases:
+bjt, transistor amplifier, transistor switch, ce cb cc, load line, q point, hybrid model
+
+
+CHAPTER 3: Field Effect Transistor
+topics:
+- JFET basic operation
+- JFET characteristics
+- JFET parameters
+- IGFET or MOSFET basic operation
+- depletion MOSFET
+- enhancement MOSFET
+- FET as amplifier
+- biasing
+- small signal FET model
+
+keywords:
+FET, field effect transistor, JFET, junction FET, MOSFET, IGFET, depletion MOSFET,
+enhancement MOSFET, FET characteristics, pinch off, drain current, gate, source, drain,
+transconductance, FET amplifier, FET biasing, small signal FET model, FET equivalent circuit
+
+match_aliases:
+fet, jfet, mosfet, igfet, depletion type, enhancement type, fet amplifier
+
+
+CHAPTER 4: Amplifiers
+topics:
+- definition of amplification
+- gain
+- decibel
+- amplifier types
+- frequency response
+- phase response
+- CR network model for transfer function
+- multistage amplifiers
+- coupling
+- cascaded amplifier
+- darlington pair
+- long tail pair
+- emitter follower
+- tuned load
+- design of simple single stage amplifier
+- computer simulation packages
+
+keywords:
+amplification, amplifier gain, voltage gain, current gain, power gain, decibel, dB,
+frequency response, phase response, transfer function, CR network, RC/CR network,
+multistage amplifier, coupling, cascaded amplifier, Darlington pair, long tail pair,
+differential pair, emitter follower, tuned load, single stage amplifier design,
+simulation, circuit simulation
+
+match_aliases:
+amplifier basics, db, frequency response, multistage amplifier, darlington, emitter follower
+
+
+CHAPTER 5: Power Amplifiers
+topics:
+- class A power amplifier
+- AC load line
+- matching transformer load
+- efficiency
+- choice of transistor
+- amplifier classification A B C
+- class B push-pull amplifier
+- complementary pair
+- crossover distortion
+- integrated circuit power amplifier
+
+keywords:
+power amplifier, class A amplifier, AC load line, transformer coupled amplifier,
+matching transformer, efficiency, transistor selection, class B amplifier, class C amplifier,
+push pull amplifier, complementary symmetry, complementary pair, crossover distortion,
+IC power amplifier, power stage
+
+match_aliases:
+class a b c, push pull, crossover, transformer coupled, power stage
+
+
+CHAPTER 6: Operational Amplifiers
+topics:
+- ideal op-amp parameters
+- inverting amplifier gain derivation
+- non-inverting amplifier gain derivation
+- feedback
+- input offset voltage
+- input offset current
+- input bias current
+- common mode rejection ratio
+- slew rate
+- full power bandwidth
+- unity gain bandwidth
+- integrator
+- differentiator
+- adder
+- clipping circuits
+- comparator circuits
+
+keywords:
+op amp, operational amplifier, ideal op amp, inverting amplifier, non inverting amplifier,
+closed loop gain, feedback amplifier, offset voltage, offset current, bias current, CMRR,
+slew rate, full power bandwidth, unity gain bandwidth, integrator, differentiator, summing amplifier,
+adder, clipper, comparator, linear IC
+
+match_aliases:
+opamp, inverting, noninverting, comparator, integrator, differentiator, cmrr, slew rate
