@@ -1,0 +1,197 @@
+==============================
+COURSE: EEEG 202
+TITLE: Electronics Engineering I / Digital Logic Fundamentals
+==============================
+
+CHAPTER 1: Introduction to Digital Systems
+topics:
+- why digital
+- analogue versus digital
+
+keywords:
+digital systems, why digital, analog vs digital, analogue vs digital, digital advantages,
+digital representation, discrete signals, continuous signals
+
+match_aliases:
+digital introduction, analog digital comparison
+
+
+CHAPTER 2: Number Systems and Codes
+topics:
+- binary number system
+- octal number system
+- hexadecimal number system
+- conversion between number systems
+- signed magnitude representation
+- radix complement representation
+- 2’s complement
+- 10’s complement
+- diminished radix complement representation
+- 1’s complement
+- 9’s complement
+- addition and subtraction of negative numbers
+- binary multiplication
+- binary division
+- overflow in arithmetic operations
+- weighted and unweighted binary codes
+- excess-3 code
+- Gray code
+- parity
+- alphanumeric codes
+- ASCII
+- EBCDIC
+
+keywords:
+number systems, binary, octal, hexadecimal, base conversion, signed magnitude,
+radix complement, diminished radix complement, 1s complement, 2s complement,
+9s complement, 10s complement, negative number representation, binary arithmetic,
+addition, subtraction, multiplication, division, overflow, weighted code, unweighted code,
+Excess-3, Gray code, parity bit, error detecting code, ASCII, EBCDIC, alphanumeric coding
+
+match_aliases:
+number system, complements, gray, excess-3, ascii, parity, digital codes
+
+
+CHAPTER 3: Boolean Algebra and Logic Gates
+topics:
+- postulates of Boolean algebra
+- associativity
+- inverse
+- closure
+- commutativity
+- distributivity
+- theorems and properties
+- duality
+- Boolean variables and constants
+- algebraic manipulation
+- maxterms
+- minterms
+- conversion between maxterms and minterms
+- switching algebra
+- digital logic gates
+- IC digital logic families
+- TTL
+- ECL
+- MOS
+- CMOS
+- I2L
+
+keywords:
+Boolean algebra, postulates, laws of Boolean algebra, associativity, inverse, closure,
+commutativity, distributivity, theorems, duality, Boolean variables, Boolean constants,
+algebraic simplification, maxterms, minterms, canonical form, switching algebra,
+logic gates, AND, OR, NOT, NAND, NOR, XOR, XNOR, digital logic families,
+TTL, ECL, MOS, CMOS, I2L
+
+match_aliases:
+boolean, logic gates, minterm, maxterm, ttl cmos, gate families
+
+
+CHAPTER 4: Simplification of Boolean Functions
+topics:
+- map method
+- 2 variable K-map
+- 3 variable K-map
+- 4 variable K-map
+- product of sums simplification
+- implementation using NAND gates
+- implementation using NOR gates
+- don’t care conditions
+- tabulation method
+- detection of prime implicants
+- selection of prime implicants
+
+keywords:
+Boolean simplification, K-map, Karnaugh map, 2-variable map, 3-variable map, 4-variable map,
+product of sums, sum of products, NAND implementation, NOR implementation, universal gates,
+don’t care conditions, tabulation method, Quine-McCluskey, prime implicants, essential prime implicants
+
+match_aliases:
+kmap, k-map, simplification, universal gates, prime implicant, tabulation
+
+
+CHAPTER 5: Combinational Logic
+topics:
+- active level designation
+- half adder
+- full adder
+- half subtractor
+- full subtractor
+- BCD to excess-3 converter
+- binary parallel adder
+- look ahead carry generator
+- BCD adder
+- magnitude comparator
+- decoder
+- encoder
+- priority encoder
+- multiplexer
+- demultiplexer
+- combinational circuit analysis
+- combinational circuit realization using universal gates
+- block diagram transformation between gate types
+- use of multiplexers and decoders for design
+- ROM
+- PLA
+- use of ROM and PLA in combinational logic
+
+keywords:
+combinational logic, active level, half adder, full adder, half subtractor, full subtractor,
+BCD to Excess-3, binary parallel adder, carry look ahead, look ahead carry generator,
+BCD adder, magnitude comparator, decoder, encoder, priority encoder, multiplexer, MUX,
+demultiplexer, DEMUX, combinational circuit analysis, realization, universal gates,
+gate conversion, design using multiplexers, design using decoders, ROM, PLA
+
+match_aliases:
+adder subtractor, mux demux, decoder encoder, bcd adder, rom pla
+
+
+CHAPTER 6: Sequential Logic Circuits
+topics:
+- distinction between combinational and sequential circuits
+- bistables
+- master-slave
+- edge triggered
+- design of clocked bistables
+- conversion from one type to another
+- analysis using state diagrams
+- bistable excitation tables
+- state reduction method
+- single mode counter
+- modulo-n counter
+
+keywords:
+sequential logic, combinational vs sequential, bistable, flip-flop, latch, master slave,
+edge triggered, clocked bistables, flip-flop conversion, state diagram, state table,
+excitation table, state reduction, counter design, single mode counter, modulo-n counter
+
+match_aliases:
+flip flop, bistable, state diagram, state reduction, mod-n counter
+
+
+CHAPTER 7: Registers, Counters and Memories
+topics:
+- registers as basic memory blocks
+- registers with parallel load
+- shift registers
+- bidirectional shift registers with parallel load
+- ripple counters
+- binary ripple counters
+- BCD ripple counters
+- binary counters
+- binary up/down counters
+- BCD counters
+- Johnson counters
+- ring counters
+- memory units
+- memory address register
+- memory buffer register
+
+keywords:
+registers, memory blocks, parallel load register, shift register, bidirectional shift register,
+ripple counter, binary ripple counter, BCD ripple counter, binary counter, up down counter,
+BCD counter, Johnson counter, ring counter, memory unit, MAR, memory address register,
+MBR, memory buffer register
+
+match_aliases:
+register, shift register, ripple counter, johnson, ring counter, mar mbr
