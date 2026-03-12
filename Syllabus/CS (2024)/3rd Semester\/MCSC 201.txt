@@ -1,0 +1,121 @@
+==============================
+COURSE: MCSC 201
+TITLE: Discrete Mathematics
+==============================
+
+CHAPTER 1: Fundamentals
+topics:
+- algebra on sets
+- sequences
+- integers and divisibility
+- Boolean matrices
+- mathematical structures
+
+keywords:
+sets, set algebra, union, intersection, difference, complement, sequences, integer properties,
+divisibility, divisors, multiples, Boolean matrices, matrix operations in Boolean algebra,
+mathematical structures, discrete structures
+
+match_aliases:
+fundamentals, set algebra, divisibility, boolean matrix
+
+
+CHAPTER 2: Logic
+topics:
+- propositions and logical operations
+- conditional statements
+- methods of proof
+- mathematical induction
+- pigeonhole principle
+
+keywords:
+logic, proposition, propositional logic, logical operations, negation, conjunction,
+disjunction, implication, biconditional, conditional statements, proof methods,
+direct proof, indirect proof, contradiction, contrapositive, mathematical induction,
+weak induction, strong induction, pigeonhole principle
+
+match_aliases:
+proposition, proof, induction, pigeonhole, implication
+
+
+CHAPTER 3: Relations and Digraphs
+topics:
+- product sets and partitions
+- relations and digraphs
+- paths in relations and digraphs
+- properties of relations
+- equivalence relations
+- operations on relations
+
+keywords:
+relations, digraphs, product sets, Cartesian product, partitions, relation properties,
+reflexive, symmetric, antisymmetric, transitive, equivalence relation, relation operations,
+composition of relations, inverse relation, paths in digraphs
+
+match_aliases:
+relation, digraph, equivalence relation, product set, partition
+
+
+CHAPTER 4: Functions
+topics:
+- introduction to functions
+- functions for computer science
+- permutation functions
+
+keywords:
+functions, domain, codomain, range, mapping, one-one, onto, bijection,
+function concepts in computer science, permutation functions, permutation mapping
+
+match_aliases:
+function, mapping, permutation, one-one onto
+
+
+CHAPTER 5: Order Relations and Structures
+topics:
+- partially ordered sets
+- extremal elements of partially ordered sets
+- lattices
+- finite Boolean algebras
+
+keywords:
+order relations, poset, partially ordered set, partial order, extremal elements,
+maximal element, minimal element, greatest element, least element, lattice,
+join, meet, finite Boolean algebra, ordered structure
+
+match_aliases:
+poset, lattice, boolean algebra, extremal elements, order relation
+
+
+CHAPTER 6: Graph Theory
+topics:
+- introduction to graphs
+- subgraphs
+- quotient graphs
+- Euler paths and circuits
+- Hamiltonian paths and circuits
+- transport networks
+
+keywords:
+graph theory, graph, vertex, edge, subgraph, quotient graph, Euler path, Euler circuit,
+Hamiltonian path, Hamiltonian circuit, transport network, network graph, traversability
+
+match_aliases:
+euler, hamiltonian, subgraph, network, graph theory
+
+
+CHAPTER 7: Semigroups and Groups
+topics:
+- binary operations
+- semigroups
+- product and quotients of semigroup
+- groups
+- products and quotients of groups
+- other mathematical structures
+
+keywords:
+binary operation, algebraic structure, semigroup, monoid, group, closure, associativity,
+identity, inverse, product of semigroup, quotient of semigroup, product of groups,
+quotient groups, abstract algebra, mathematical structures
+
+match_aliases:
+group theory basics, semigroup, binary operation, quotient group
