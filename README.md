@@ -107,20 +107,6 @@ Similarity Scoring: O(C × k)
 
 ------------------------------------------------------------------------
 
-## 📄 Project Report
-
-The complete academic report is located in:
-
-    /report/
-
-Compile using:
-
-``` bash
-pdflatex report.tex
-```
-
-------------------------------------------------------------------------
-
 ## 🎯 Applications
 
 -   Academic question bank search

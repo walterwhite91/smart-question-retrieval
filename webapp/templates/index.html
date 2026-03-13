@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Question Retrieval</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=asset_version) }}">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Smart Question Retrieval System</p>
+        <h1>Responsive Local Web App</h1>
+      </div>
+      <div class="dataset-badge">Dataset: {{ dataset_path }}</div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel filters-panel">
+        <h2>Filters</h2>
+
+        <label class="field">
+          <span>Semester</span>
+          <select id="semester"></select>
+        </label>
+
+        <label class="field">
+          <span>Subject</span>
+          <select id="subject"></select>
+        </label>
+
+        <label class="field">
+          <span>Filter Mode</span>
+          <select id="filterMode">
+            <option value="chapter">Chapter wise</option>
+            <option value="paper_section">Paper &amp; Section wise</option>
+            <option value="all">All</option>
+          </select>
+        </label>
+
+        <section id="chapterBlock" class="field-group">
+          <div class="field-group-header">
+            <span>Chapters</span>
+          </div>
+          <div id="chapterChecklist" class="checklist"></div>
+        </section>
+
+        <section id="paperSectionBlock" class="field-group">
+          <label class="field">
+            <span>Paper Type</span>
+            <select id="paperType"></select>
+          </label>
+
+          <label class="field">
+            <span>Section</span>
+            <select id="section"></select>
+          </label>
+        </section>
+
+        <button id="loadQuestions" type="button" class="primary-btn">Load Questions</button>
+      </aside>
+
+      <section class="panel explorer-panel">
+        <div class="search-bar-row">
+          <input id="searchInput" type="text" placeholder="Type a question to find similar">
+          <button id="searchButton" type="button" class="primary-btn">Search</button>
+          <button id="showAllButton" type="button" class="ghost-btn">Show All Filtered Questions</button>
+        </div>
+
+        <div id="questionList" class="question-list"></div>
+      </section>
+
+      <aside class="panel actions-panel">
+        <h2>Actions</h2>
+        <button id="copySelected" type="button" class="primary-btn">Copy Selected Question</button>
+        <button id="copyAll" type="button" class="ghost-btn">Copy All Filtered Questions</button>
+        <button id="exportTxt" type="button" class="ghost-btn">Export Filtered Questions → TXT</button>
+        <button id="exportJson" type="button" class="ghost-btn">Export Filtered Questions → JSON</button>
+        <button id="openDatasetFolder" type="button" class="ghost-btn">Open Dataset Folder</button>
+      </aside>
+    </main>
+
+    <footer class="statusbar">
+      <div id="statusCount">Loaded questions: 0</div>
+      <div id="statusScope">Scope: -</div>
+      <div id="statusChapter">Chapters: All</div>
+    </footer>
+  </div>
+
+  <template id="questionCardTemplate">
+    <article class="question-card">
+      <div class="question-meta"></div>
+      <div class="question-body"></div>
+    </article>
+  </template>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      },
+      startup: {
+        typeset: false,
+      },
+    };
+  </script>
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  ></script>
+  <script src="{{ url_for('static', filename='app.js', v=asset_version) }}"></script>
+</body>
+</html>
