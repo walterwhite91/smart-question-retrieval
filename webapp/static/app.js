@@ -30,6 +30,12 @@ class StudyApp {
     // Buttons
     this.searchBtn = document.getElementById('searchButton');
     this.openDatasetBtn = document.getElementById('openDatasetFolder');
+    this.showStatsBtn = document.getElementById('showStatsBtn');
+
+    // Modal
+    this.statsModal = document.getElementById('statsModal');
+    this.statsContainer = document.getElementById('statsContainer');
+    this.closeModalBtn = this.statsModal.querySelector('.close-modal');
 
     // Inputs
     this.semSelect = document.getElementById('semester');
@@ -66,6 +72,11 @@ class StudyApp {
     });
 
     this.openDatasetBtn.addEventListener('click', () => this.openDataset());
+    this.showStatsBtn.addEventListener('click', () => this.showStats());
+    this.closeModalBtn.addEventListener('click', () => this.statsModal.style.display = 'none');
+    window.addEventListener('click', (e) => {
+      if (e.target === this.statsModal) this.statsModal.style.display = 'none';
+    });
   }
 
   async loadInitialOptions() {
@@ -191,6 +202,8 @@ class StudyApp {
       return;
     }
 
+    const solvedIds = JSON.parse(localStorage.getItem('solved_questions') || '[]');
+
     this.state.questions.forEach((q, idx) => {
       const card = this.cardTemplate.content.cloneNode(true);
       const container = card.querySelector('.question-card');
@@ -199,6 +212,20 @@ class StudyApp {
       container.querySelector('.subject-tag').textContent = q.subject;
       container.querySelector('.marks-tag').textContent = `${q.mark || q.marks || 0} Marks`;
       container.querySelector('.question-body').textContent = q.question;
+
+      // Solved logic
+      const solvedCheckbox = container.querySelector('.solved-checkbox');
+      const qId = q._id || `${q.subject}_${q.question.substring(0, 20)}`;
+      solvedCheckbox.checked = solvedIds.includes(qId);
+      solvedCheckbox.addEventListener('change', () => {
+        let currentSolved = JSON.parse(localStorage.getItem('solved_questions') || '[]');
+        if (solvedCheckbox.checked) {
+          if (!currentSolved.includes(qId)) currentSolved.push(qId);
+        } else {
+          currentSolved = currentSolved.filter(id => id !== qId);
+        }
+        localStorage.setItem('solved_questions', JSON.stringify(currentSolved));
+      });
 
       // Copy logic
       container.querySelector('.copy-btn').addEventListener('click', () => {
@@ -277,6 +304,7 @@ class StudyApp {
   formatContent(text) {
     if (!text) return '';
 
+    // Refined formatting to match Image 2
     const lines = text.split('\n');
     let inTable = false;
     let tableHtml = '';
@@ -284,8 +312,12 @@ class StudyApp {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
+      // Skip purely decorative lines if they look like table separators that aren't real pipes
       if (line.includes('|') && line.split('|').length > 1) {
-        const cols = line.split('|').map(c => c.trim());
+        const cols = line.split('|').filter(c => c.trim().length > 0).map(c => c.trim());
+        // If it's a separator line (---), skip it or handle it
+        if (cols.every(c => c.match(/^-+$/))) continue;
+
         if (!inTable) {
           inTable = true;
           tableHtml = '<table><thead><tr>';
@@ -302,7 +334,7 @@ class StudyApp {
           result.push(tableHtml);
           inTable = false;
         }
-        if (line) result.push(line);
+        result.push(line);
       }
     }
     if (inTable) {
@@ -310,7 +342,70 @@ class StudyApp {
       result.push(tableHtml);
     }
 
-    return result.join('<br>');
+    return result.join('\n');
+  }
+
+  showStats() {
+    const solvedIds = JSON.parse(localStorage.getItem('solved_questions') || '[]');
+    const questions = this.state.questions;
+
+    if (!questions.length) {
+      this.statsContainer.innerHTML = '<p style="text-align:center; padding: 2rem;">Please filter/search questions first to view progress.</p>';
+      this.statsModal.style.display = 'flex';
+      return;
+    }
+
+    const currentSubject = this.state.subject || 'All Filtered';
+    let solvedCount = 0;
+    const chapterStats = {};
+
+    questions.forEach(q => {
+      const qId = q._id || `${q.subject}_${q.question.substring(0, 20)}`;
+      const isSolved = solvedIds.includes(qId);
+      if (isSolved) solvedCount++;
+
+      const chapters = Array.isArray(q.chapter) ? q.chapter : [q.chapter || 'Uncategorized'];
+      chapters.forEach(ch => {
+        if (!chapterStats[ch]) chapterStats[ch] = { total: 0, solved: 0 };
+        chapterStats[ch].total++;
+        if (isSolved) chapterStats[ch].solved++;
+      });
+    });
+
+    const totalCount = questions.length;
+    let html = `
+      <div class="stats-item">
+        <div class="stat-row">
+          <span style="font-weight:700; color:#fff;">Subject Progress: ${currentSubject}</span>
+          <span style="font-weight:700; color:var(--accent-primary);">${solvedCount} / ${totalCount} (${Math.round(solvedCount / totalCount * 100)}%)</span>
+        </div>
+        <div class="progress-bar-container" style="height: 12px; margin-top: 0.5rem;">
+          <div class="progress-bar" style="width: ${(solvedCount / totalCount) * 100}%"></div>
+        </div>
+      </div>
+      <div style="margin: 2rem 0 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+        <h3 style="font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Chapter-wise Breakdown</h3>
+      </div>
+    `;
+
+    Object.keys(chapterStats).sort().forEach(ch => {
+      const s = chapterStats[ch];
+      const pct = Math.round((s.solved / s.total) * 100);
+      html += `
+        <div class="stats-item" style="margin-bottom: 1.5rem;">
+          <div class="stat-row">
+            <span style="font-size: 0.9rem;">${ch}</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">${s.solved} / ${s.total} (${pct}%)</span>
+          </div>
+          <div class="progress-bar-container" style="height: 6px;">
+            <div class="progress-bar" style="width: ${pct}%"></div>
+          </div>
+        </div>
+      `;
+    });
+
+    this.statsContainer.innerHTML = html;
+    this.statsModal.style.display = 'flex';
   }
 
   async openDataset() {

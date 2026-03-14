@@ -64,16 +64,40 @@
     <footer class="statusbar">
       <div id="statusCount">0 Questions found</div>
       <div id="statusScope">Scope: All</div>
+      <button id="showStatsBtn"
+        style="background:var(--accent-soft); border:1px solid var(--accent-primary); color:var(--accent-primary); cursor:pointer; padding: 2px 8px; border-radius: 4px; font-weight:600;">View
+        Progress</button>
       <button id="openDatasetFolder"
         style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit;">Open Dataset</button>
     </footer>
   </div>
 
+  <!-- Stats Modal -->
+  <div id="statsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Learning Progress</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div id="statsContainer" class="stats-container">
+        <!-- Stats will be injected here -->
+      </div>
+    </div>
+  </div>
+
   <template id="questionCardTemplate">
     <article class="question-card">
-      <div class="question-meta">
-        <span class="subject-tag"></span>
-        <span class="marks-tag"></span>
+      <div class="card-header-row"
+        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+        <div class="question-meta">
+          <span class="subject-tag"></span>
+          <span class="marks-tag"></span>
+        </div>
+        <label class="solved-checkbox-container">
+          <input type="checkbox" class="solved-checkbox">
+          <span class="checkmark"></span>
+          <span class="solved-label">Solved</span>
+        </label>
       </div>
       <div class="question-body"></div>
 
