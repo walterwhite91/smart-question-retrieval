@@ -6321,7 +6321,7 @@
     "chapter": [
       "Semigroups and Groups"
     ],
-    "family": "math_phys"
+    "family": "math_phys" 
   },
   {
     "subject": "MCSC 201",
@@ -6780,9 +6780,7 @@
     "section": "D",
     "semester": 3,
     "chapter": [
-      "Fundamentals",
-      "Relations and Digraphs",
-      "Graph Theory"
+      "Relations and Digraphs"
     ],
     "family": "math_phys"
   },
@@ -6818,7 +6816,7 @@
     "section": "E",
     "semester": 3,
     "chapter": [
-      "Fundamentals"
+      "Logic"
     ],
     "family": "math_phys"
   },
@@ -6974,8 +6972,7 @@
     "section": "D",
     "semester": 3,
     "chapter": [
-      "Fundamentals",
-      "Relations and Digraphs"
+      "Fundamentals"
     ],
     "family": "math_phys"
   },
@@ -6987,9 +6984,7 @@
     "section": "D",
     "semester": 3,
     "chapter": [
-      "Fundamentals",
-      "Logic",
-      "Functions"
+      "Logic"
     ],
     "family": "math_phys"
   },
@@ -7013,8 +7008,7 @@
     "section": "D",
     "semester": 3,
     "chapter": [
-      "Fundamentals",
-      "Functions"
+      "Fundamentals"
     ],
     "family": "math_phys"
   },
@@ -7098,8 +7092,7 @@
     "section": "B",
     "semester": 3,
     "chapter": [
-      "Relations and Digraphs",
-      "Graph Theory"
+      "Relations and Digraphs"
     ],
     "family": "math_phys"
   },

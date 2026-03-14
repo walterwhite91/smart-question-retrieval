@@ -3,95 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Question Retrieval</title>
+  <title>Smart Qn Retrieval | Study Mode</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=asset_version) }}">
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Smart Question Retrieval System</p>
-        <h1>Responsive Local Web App</h1>
-      </div>
-      <div class="dataset-badge">Dataset: {{ dataset_path }}</div>
-    </header>
-
-    <main class="layout">
-      <aside class="panel filters-panel">
-        <h2>Filters</h2>
-
-        <label class="field">
-          <span>Semester</span>
-          <select id="semester"></select>
-        </label>
-
-        <label class="field">
-          <span>Subject</span>
-          <select id="subject"></select>
-        </label>
-
-        <label class="field">
-          <span>Filter Mode</span>
-          <select id="filterMode">
-            <option value="chapter">Chapter wise</option>
-            <option value="paper_section">Paper &amp; Section wise</option>
-            <option value="all">All</option>
-          </select>
-        </label>
-
-        <section id="chapterBlock" class="field-group">
-          <div class="field-group-header">
-            <span>Chapters</span>
-          </div>
-          <div id="chapterChecklist" class="checklist"></div>
-        </section>
-
-        <section id="paperSectionBlock" class="field-group">
-          <label class="field">
-            <span>Paper Type</span>
-            <select id="paperType"></select>
-          </label>
-
-          <label class="field">
-            <span>Section</span>
-            <select id="section"></select>
-          </label>
-        </section>
-
-        <button id="loadQuestions" type="button" class="primary-btn">Load Questions</button>
-      </aside>
-
-      <section class="panel explorer-panel">
-        <div class="search-bar-row">
-          <input id="searchInput" type="text" placeholder="Type a question to find similar">
-          <button id="searchButton" type="button" class="primary-btn">Search</button>
-          <button id="showAllButton" type="button" class="ghost-btn">Show All Filtered Questions</button>
+      <p class="eyebrow">Smart Question Retrieval</p>
+      <h1>Study Hub</h1>
+      
+      <div class="controls-row">
+        <div class="mode-toggle">
+          <button id="examModeBtn" class="mode-btn active">Exam Mode</button>
+          <button id="guidedModeBtn" class="mode-btn">Guided Mode</button>
         </div>
+      </div>
 
-        <div id="questionList" class="question-list"></div>
+      <div class="filters-grid">
+        <div class="select-wrapper">
+          <select id="semester"></select>
+        </div>
+        <div class="select-wrapper">
+          <select id="subject"></select>
+        </div>
+        <div class="select-wrapper">
+          <select id="filterMode">
+            <option value="all">All Questions</option>
+            <option value="chapter">By Chapter</option>
+            <option value="paper_section">By Paper/Section</option>
+          </select>
+        </div>
+      </div>
+
+      <section id="chapterBlock" style="display: none; margin-bottom: 2rem;">
+        <div id="chapterChecklist" class="checklist"></div>
       </section>
 
-      <aside class="panel actions-panel">
-        <h2>Actions</h2>
-        <button id="copySelected" type="button" class="primary-btn">Copy Selected Question</button>
-        <button id="copyAll" type="button" class="ghost-btn">Copy All Filtered Questions</button>
-        <button id="exportTxt" type="button" class="ghost-btn">Export Filtered Questions → TXT</button>
-        <button id="exportJson" type="button" class="ghost-btn">Export Filtered Questions → JSON</button>
-        <button id="openDatasetFolder" type="button" class="ghost-btn">Open Dataset Folder</button>
-      </aside>
+      <section id="paperSectionBlock" style="display: none; margin-bottom: 2rem;" class="filters-grid">
+        <div class="select-wrapper">
+          <select id="paperType"></select>
+        </div>
+        <div class="select-wrapper">
+          <select id="section"></select>
+        </div>
+      </section>
+
+      <div class="search-container">
+        <input id="searchInput" type="text" placeholder="Search for a question...">
+        <button id="searchButton" title="Search">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <div id="questionList" class="question-list">
+        <div class="empty-state">Select filters to start studying</div>
+      </div>
     </main>
 
     <footer class="statusbar">
-      <div id="statusCount">Loaded questions: 0</div>
-      <div id="statusScope">Scope: -</div>
-      <div id="statusChapter">Chapters: All</div>
+      <div id="statusCount">0 Questions found</div>
+      <div id="statusScope">Scope: All</div>
+      <button id="openDatasetFolder" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit;">Open Dataset</button>
     </footer>
   </div>
 
   <template id="questionCardTemplate">
     <article class="question-card">
-      <div class="question-meta"></div>
+      <div class="question-meta">
+        <span class="subject-tag"></span>
+        <span class="marks-tag"></span>
+      </div>
       <div class="question-body"></div>
+      
+      <div class="card-actions">
+        <button class="copy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="answer-wrapper" style="display: none;">
+        <button class="show-answer-btn">
+           Show Answer
+           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="answer-content">
+          <div class="answer-section">
+            <div class="answer-section-title">Verified Answer</div>
+            <div class="answer-text"></div>
+          </div>
+          <div class="follow-up-section" style="margin-top: 1rem;">
+            <div class="answer-section-title">Follow-up Knowledge check</div>
+            <div class="follow-up-text" style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;"></div>
+          </div>
+        </div>
+      </div>
     </article>
   </template>
 
@@ -110,10 +118,7 @@
       },
     };
   </script>
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-  ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <script src="{{ url_for('static', filename='app.js', v=asset_version) }}"></script>
 </body>
 </html>

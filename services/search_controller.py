@@ -27,6 +27,28 @@ class SearchController:
     def __init__(self, dataset_path: str | Path) -> None:
         self.dataset_path = Path(dataset_path).resolve()
         self.dataset: List[QObj] = load_dataset(str(self.dataset_path))
+
+        # Load expanded dataset for answers
+        expanded_path = self.dataset_path.parent / "expanded_dataset.jsonl"
+        answers: dict[str, QObj] = {}
+        if expanded_path.exists():
+            expanded_data = load_dataset(str(expanded_path))
+            answers = {q["question"]: q for q in expanded_data}
+
+        # Merge answers into the main dataset
+        for q in self.dataset:
+            ans = answers.get(q["question"])
+            if ans:
+                q["answer_data"] = {
+                    "exam_mode": ans.get("exam_mode_answer"),
+                    "guided_mode": ans.get("guided_mode_answer"),
+                    "exam_f_question": ans.get("exam_f_question"),
+                    "guided_f_question": ans.get("guided_f_question"),
+                    "keywords": ans.get("keywords", [])
+                }
+            else:
+                q["answer_data"] = None
+
         self._searchers: dict[tuple[int, ...], QuestionSearcher] = {}
 
     @property

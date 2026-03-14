@@ -1,431 +1,281 @@
-const state = {
-  filteredQuestions: [],
-  visibleQuestions: [],
-  selectedIndex: -1,
-  selectedChapter: "",
-  chapterSourceEntries: [],
-};
+/**
+ * Smart Question Retrieval - app.js
+ */
 
-const semesterEl = document.getElementById("semester");
-const subjectEl = document.getElementById("subject");
-const filterModeEl = document.getElementById("filterMode");
-const paperTypeEl = document.getElementById("paperType");
-const sectionEl = document.getElementById("section");
-const chapterBlockEl = document.getElementById("chapterBlock");
-const paperSectionBlockEl = document.getElementById("paperSectionBlock");
-const chapterChecklistEl = document.getElementById("chapterChecklist");
-const toggleAllChaptersEl = document.getElementById("toggleAllChapters");
-const questionListEl = document.getElementById("questionList");
-const searchInputEl = document.getElementById("searchInput");
-const statusCountEl = document.getElementById("statusCount");
-const statusScopeEl = document.getElementById("statusScope");
-const statusChapterEl = document.getElementById("statusChapter");
-
-async function fetchJSON(url, options = {}) {
-  const response = await fetch(url, options);
-  if (!response.ok) {
-    throw new Error(`Request failed: ${response.status}`);
-  }
-  return response.json();
-}
-
-function setOptions(selectEl, values) {
-  const current = selectEl.value;
-  selectEl.innerHTML = "";
-  values.forEach((value) => {
-    const option = document.createElement("option");
-    option.value = String(value);
-    option.textContent = String(value);
-    selectEl.appendChild(option);
-  });
-  if (values.includes(current)) {
-    selectEl.value = current;
-  }
-}
-
-function normalizeChapterEntries(chapters) {
-  return (chapters || []).map((chapter) => {
-    if (typeof chapter === "string") {
-      return { name: chapter, count: null, label: chapter };
-    }
-    return {
-      name: chapter.name || "",
-      count: Number.isFinite(Number(chapter.count)) ? Number(chapter.count) : null,
-      label: chapter.label || chapter.name || "",
+class StudyApp {
+  constructor() {
+    this.state = {
+      semester: null,
+      subject: '',
+      filter_mode: 'all',
+      chapters: [],
+      paper_type: '',
+      section: '',
+      query: '',
+      studyMode: 'exam', // 'exam' or 'guided'
+      questions: []
     };
-  });
-}
 
-function withDerivedCounts(chapters, questions) {
-  const counts = new Map();
-  (questions || []).forEach((question) => {
-    (question.chapter || []).forEach((chapter) => {
-      counts.set(chapter, (counts.get(chapter) || 0) + 1);
+    this.init();
+  }
+
+  async init() {
+    this.cacheElements();
+    this.bindEvents();
+    await this.loadInitialOptions();
+    this.restoreState();
+  }
+
+  cacheElements() {
+    // Buttons
+    this.examModeBtn = document.getElementById('examModeBtn');
+    this.guidedModeBtn = document.getElementById('guidedModeBtn');
+    this.searchBtn = document.getElementById('searchButton');
+    this.openDatasetBtn = document.getElementById('openDatasetFolder');
+
+    // Inputs
+    this.semSelect = document.getElementById('semester');
+    this.subSelect = document.getElementById('subject');
+    this.modeSelect = document.getElementById('filterMode');
+    this.searchInput = document.getElementById('searchInput');
+    this.paperSelect = document.getElementById('paperType');
+    this.sectionSelect = document.getElementById('section');
+
+    // Containers
+    this.chapterBlock = document.getElementById('chapterBlock');
+    this.chapterChecklist = document.getElementById('chapterChecklist');
+    this.paperSectionBlock = document.getElementById('paperSectionBlock');
+    this.questionList = document.getElementById('questionList');
+
+    // Status
+    this.statusCount = document.getElementById('statusCount');
+    this.statusScope = document.getElementById('statusScope');
+
+    // Templates
+    this.cardTemplate = document.getElementById('questionCardTemplate');
+  }
+
+  bindEvents() {
+    this.examModeBtn.addEventListener('click', () => this.setStudyMode('exam'));
+    this.guidedModeBtn.addEventListener('click', () => this.setStudyMode('guided'));
+
+    this.semSelect.addEventListener('change', () => this.handleFilterChange('semester'));
+    this.subSelect.addEventListener('change', () => this.handleFilterChange('subject'));
+    this.modeSelect.addEventListener('change', () => this.handleFilterChange('mode'));
+    this.paperSelect.addEventListener('change', () => this.handleFilterChange('paper'));
+    this.sectionSelect.addEventListener('change', () => this.handleFilterChange('section'));
+
+    this.searchBtn.addEventListener('click', () => this.performSearch());
+    this.searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') this.performSearch();
     });
-  });
-  return chapters.map((chapter) => ({
-    ...chapter,
-    count: chapter.count ?? counts.get(chapter.name) ?? 0,
-  }));
-}
 
-function renderChecklist(chapters) {
-  const selected = state.selectedChapter;
-  chapterChecklistEl.innerHTML = "";
-  const normalized = withDerivedCounts(normalizeChapterEntries(chapters), state.filteredQuestions);
-  const totalCount = normalized.reduce((sum, chapter) => sum + (chapter.count ?? 0), 0);
-  const items = [{ name: "", count: totalCount, label: "All chapters" }, ...normalized];
-  items.forEach((chapter) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `check-item${selected === chapter.name ? " active" : ""}`;
-    button.dataset.chapter = chapter.name;
-    button.innerHTML =
-      `<span class="chapter-name">${escapeHtml(chapter.label || chapter.name)}</span>` +
-      `<span class="chapter-count">(${chapter.count ?? 0})</span>`;
-    button.addEventListener("click", async () => {
-      state.selectedChapter = chapter.name;
-      renderChecklist(state.chapterSourceEntries);
-      updateStatus();
-      if (filterModeEl.value === "chapter") {
-        await loadFilteredQuestions();
-      }
+    this.openDatasetBtn.addEventListener('click', () => this.openDataset());
+  }
+
+  async loadInitialOptions() {
+    try {
+      const resp = await fetch('/api/options');
+      const data = await resp.json();
+      this.populateSelect(this.semSelect, data.semesters, 'Select Semester');
+      this.populateSelect(this.subSelect, data.subjects, 'Select Subject');
+    } catch (err) {
+      console.error('Failed to load options', err);
+    }
+  }
+
+  populateSelect(el, items, placeholder) {
+    el.innerHTML = `<option value="">${placeholder}</option>`;
+    items.forEach(item => {
+      const val = typeof item === 'object' ? (item.id || item.name) : item;
+      const label = typeof item === 'object' ? item.name : item;
+      el.innerHTML += `<option value="${val}">${label}</option>`;
     });
-    chapterChecklistEl.appendChild(button);
-  });
-}
-
-function getSelectedChapters() {
-  return state.selectedChapter ? [state.selectedChapter] : [];
-}
-
-function getFilterPayload() {
-  return {
-    semester: semesterEl.value,
-    subject: subjectEl.value,
-    filter_mode: filterModeEl.value,
-    chapters: getSelectedChapters(),
-    paper_type: paperTypeEl.value,
-    section: sectionEl.value,
-  };
-}
-
-function updateModeVisibility() {
-  const mode = filterModeEl.value;
-  chapterBlockEl.classList.toggle("hidden", mode !== "chapter");
-  paperSectionBlockEl.classList.toggle("hidden", mode !== "paper_section");
-}
-
-async function refreshOptions() {
-  const base = await fetchJSON(`/api/options?${new URLSearchParams({
-    semester: semesterEl.value || "",
-  }).toString()}`);
-  setOptions(semesterEl, base.semesters.map(String));
-  setOptions(subjectEl, base.subjects);
-
-  const subjectData = await fetchJSON(`/api/options?${new URLSearchParams({
-    semester: semesterEl.value || "",
-    subject: subjectEl.value || "",
-  }).toString()}`);
-  const normalizedChapters = normalizeChapterEntries(subjectData.chapters);
-  state.chapterSourceEntries = normalizedChapters;
-  if (!normalizedChapters.some((chapter) => chapter.name === state.selectedChapter)) {
-    state.selectedChapter = "";
   }
-  renderChecklist(normalizedChapters);
-  setOptions(paperTypeEl, subjectData.paper_types);
 
-  const sectionData = await fetchJSON(`/api/options?${new URLSearchParams({
-    semester: semesterEl.value || "",
-    subject: subjectEl.value || "",
-    paper_type: paperTypeEl.value || "",
-  }).toString()}`);
-  setOptions(sectionEl, sectionData.sections);
-  updateModeVisibility();
-}
+  setStudyMode(mode) {
+    this.state.studyMode = mode;
+    this.examModeBtn.classList.toggle('active', mode === 'exam');
+    this.guidedModeBtn.classList.toggle('active', mode === 'guided');
+    this.renderQuestions();
+  }
 
-function escapeHtml(text) {
-  return text
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
+  async handleFilterChange(trigger) {
+    this.state.semester = this.semSelect.value;
+    this.state.subject = this.subSelect.value;
+    this.state.filter_mode = this.modeSelect.value;
+    this.state.paper_type = this.paperSelect.value;
+    this.state.section = this.sectionSelect.value;
 
-function splitMathSegments(text) {
-  const segments = [];
-  const mathPattern = /(\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\$[^$\n]+\$|\\\([\s\S]+?\\\))/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = mathPattern.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      segments.push({ type: "text", value: text.slice(lastIndex, match.index) });
+    if (trigger === 'semester' || trigger === 'subject') {
+      await this.refreshDependentOptions();
     }
-    segments.push({ type: "math", value: match[0] });
-    lastIndex = match.index + match[0].length;
+
+    this.updateVisibility();
+    this.autoLoad();
   }
 
-  if (lastIndex < text.length) {
-    segments.push({ type: "text", value: text.slice(lastIndex) });
+  async refreshDependentOptions() {
+    const params = new URLSearchParams({
+      semester: this.state.semester || '',
+      subject: this.state.subject || '',
+      paper_type: this.state.paper_type || ''
+    });
+
+    const resp = await fetch(`/api/options?${params}`);
+    const data = await resp.json();
+
+    if (this.state.filter_mode === 'chapter') {
+      this.renderChapterChecklist(data.chapters);
+    }
+
+    this.populateSelect(this.paperSelect, data.paper_types, 'Paper Type');
+    this.populateSelect(this.sectionSelect, data.sections, 'Section');
+
+    if (this.state.semester && !this.subSelect.value) {
+      this.populateSelect(this.subSelect, data.subjects, 'Select Subject');
+    }
   }
 
-  return segments;
-}
+  renderChapterChecklist(chapters) {
+    this.chapterChecklist.innerHTML = '';
+    chapters.forEach(ch => {
+      const label = document.createElement('label');
+      label.className = 'check-item';
+      const checked = this.state.chapters.includes(ch.name) ? 'checked' : '';
+      label.innerHTML = `
+        <input type="checkbox" value="${ch.name}" ${checked}>
+        <span>${ch.name} (${ch.count})</span>
+      `;
+      label.querySelector('input').addEventListener('change', (e) => {
+        if (e.target.checked) this.state.chapters.push(ch.name);
+        else this.state.chapters = this.state.chapters.filter(c => c !== ch.name);
+        this.autoLoad();
+      });
+      this.chapterChecklist.appendChild(label);
+    });
+  }
 
-function highlightPlainText(text, query) {
-  let rendered = escapeHtml(text);
-  const tokens = Array.from(new Set(
-    query
-      .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, " ")
-      .split(/\s+/)
-      .filter(Boolean),
-  )).sort((a, b) => b.length - a.length);
+  updateVisibility() {
+    this.chapterBlock.style.display = this.state.filter_mode === 'chapter' ? 'block' : 'none';
+    this.paperSectionBlock.style.display = this.state.filter_mode === 'paper_section' ? 'grid' : 'none';
+  }
 
-  tokens.forEach((token) => {
-    const pattern = new RegExp(`\\b(${token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})\\b`, "gi");
-    rendered = rendered.replace(pattern, "<mark>$1</mark>");
-  });
+  async autoLoad() {
+    if (this.state.semester && this.state.subject) {
+      await this.fetchQuestions('/api/filter');
+    }
+  }
 
-  return rendered;
-}
+  async performSearch() {
+    this.state.query = this.searchInput.value.strip();
+    await this.fetchQuestions('/api/search');
+  }
 
-function highlightText(text, query) {
-  return splitMathSegments(text)
-    .map((segment) => {
-      if (segment.type === "math") {
-        return escapeHtml(segment.value);
+  async fetchQuestions(endpoint) {
+    const payload = {
+      ...this.state,
+      query: this.searchInput.value
+    };
+
+    try {
+      const resp = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await resp.json();
+      this.state.questions = data.questions;
+      this.renderQuestions();
+      this.statusCount.textContent = `${data.count} Questions found`;
+      this.statusScope.textContent = `Scope: ${this.state.subject || 'All'}`;
+    } catch (err) {
+      console.error('Fetch failed', err);
+    }
+  }
+
+  renderQuestions() {
+    this.questionList.innerHTML = '';
+    if (this.state.questions.length === 0) {
+      this.questionList.innerHTML = '<div class="empty-state">No questions found matching your criteria</div>';
+      return;
+    }
+
+    this.state.questions.forEach((q, idx) => {
+      const card = this.cardTemplate.content.cloneNode(true);
+      const container = card.querySelector('.question-card');
+
+      container.querySelector('.subject-tag').textContent = q.subject;
+      container.querySelector('.marks-tag').textContent = `${q.mark || q.marks || 0} Marks`;
+      container.querySelector('.question-body').textContent = q.question;
+
+      // Copy logic
+      container.querySelector('.copy-btn').addEventListener('click', () => {
+        navigator.clipboard.writeText(q.question);
+        const btn = container.querySelector('.copy-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Copied!';
+        setTimeout(() => btn.innerHTML = originalText, 2000);
+      });
+
+      // Answer logic
+      const ansWrapper = container.querySelector('.answer-wrapper');
+      if (q.answer_data) {
+        ansWrapper.style.display = 'block';
+        const showBtn = container.querySelector('.show-answer-btn');
+        const content = container.querySelector('.answer-content');
+        const text = container.querySelector('.answer-text');
+        const followUp = container.querySelector('.follow-up-text');
+        const followUpSection = container.querySelector('.follow-up-section');
+
+        showBtn.addEventListener('click', () => {
+          const isShowing = content.classList.toggle('show');
+          showBtn.classList.toggle('expanded', isShowing);
+          showBtn.innerHTML = isShowing ?
+            `Hide Answer <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg)"><polyline points="6 9 12 15 18 9"></polyline></svg>` :
+            `Show Answer <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+          if (isShowing) {
+            this.updateAnswerContent(q, text, followUp, followUpSection);
+            if (window.MathJax) {
+              window.MathJax.typesetPromise([container]);
+            }
+          }
+        });
       }
-      return highlightPlainText(segment.value, query);
-    })
-    .join("");
-}
 
-async function typesetMath() {
-  if (!window.MathJax?.typesetPromise) {
-    return;
+      this.questionList.appendChild(card);
+    });
+
+    if (window.MathJax) {
+      window.MathJax.typesetPromise();
+    }
   }
-  try {
-    await window.MathJax.typesetPromise([questionListEl]);
-  } catch (error) {
-    console.error("MathJax rendering failed", error);
+
+  updateAnswerContent(q, textEl, followUpEl, followUpSection) {
+    const data = q.answer_data;
+    if (this.state.studyMode === 'exam') {
+      textEl.textContent = data.exam_mode || 'No exam-mode answer available.';
+      followUpEl.textContent = data.exam_f_question || '';
+    } else {
+      textEl.textContent = data.guided_mode || 'No guided-mode explanation available.';
+      followUpEl.textContent = data.guided_f_question || '';
+    }
+    followUpSection.style.display = followUpEl.textContent ? 'block' : 'none';
+  }
+
+  async openDataset() {
+    await fetch('/api/open-dataset-folder', { method: 'POST' });
+  }
+
+  restoreState() {
+    // Optional: restore from localStorage
   }
 }
 
-function renderQuestions(questions, query = "") {
-  const template = document.getElementById("questionCardTemplate");
-  questionListEl.innerHTML = "";
-  state.visibleQuestions = questions;
-  state.selectedIndex = questions.length ? 0 : -1;
+// polyfill
+String.prototype.strip = function () { return this.trim(); };
 
-  questions.forEach((question, index) => {
-    const card = template.content.firstElementChild.cloneNode(true);
-    const chapters = (question.chapter || []).join(", ") || "N/A";
-    card.querySelector(".question-meta").innerHTML =
-      `<strong>Marks:</strong> ${question.mark ?? "N/A"} &nbsp;&nbsp;` +
-      `<strong>Paper:</strong> ${question.paper_type ?? "N/A"} &nbsp;&nbsp;` +
-      `<strong>Section:</strong> ${question.section ?? "N/A"}<br>` +
-      `<strong>Chapter:</strong> ${escapeHtml(chapters)}`;
-    card.querySelector(".question-body").innerHTML = highlightText(question.question || "", query);
-    card.addEventListener("click", () => selectQuestion(index));
-    if (index === state.selectedIndex) {
-      card.classList.add("selected");
-    }
-    questionListEl.appendChild(card);
-  });
-
-  typesetMath();
-}
-
-function selectQuestion(index) {
-  state.selectedIndex = index;
-  Array.from(questionListEl.children).forEach((card, currentIndex) => {
-    card.classList.toggle("selected", currentIndex === index);
-  });
-}
-
-function currentQuestion() {
-  if (state.selectedIndex < 0 || state.selectedIndex >= state.visibleQuestions.length) {
-    return null;
-  }
-  return state.visibleQuestions[state.selectedIndex];
-}
-
-function formatQuestion(question) {
-  const chapters = (question.chapter || []).join(", ") || "N/A";
-  return `[Subject: ${question.subject ?? "N/A"}]\n` +
-    `[Chapter: ${chapters}]\n` +
-    `[Marks: ${question.mark ?? "N/A"}]\n\n` +
-    `Question: ${question.question ?? ""}`;
-}
-
-function formatBulk(questions) {
-  return questions.map((question, index) => `Q${index + 1}. ${question.question ?? ""}`).join("\n\n");
-}
-
-async function copyText(text) {
-  await navigator.clipboard.writeText(text);
-}
-
-function downloadFile(filename, content, mimeType) {
-  const blob = new Blob([content], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
-function updateStatus(searchCount = null) {
-  const payload = getFilterPayload();
-  statusCountEl.textContent = `Loaded questions: ${searchCount ?? state.visibleQuestions.length} / ${state.filteredQuestions.length}`;
-
-  const scope = [`Semester ${payload.semester || "-"}`, payload.subject || "Subject -"];
-  if (payload.filter_mode === "chapter") {
-    scope.push("Chapter wise");
-  } else if (payload.filter_mode === "paper_section") {
-    scope.push(payload.paper_type || "Paper -");
-    scope.push(payload.section ? `Section ${payload.section}` : "Section -");
-  } else {
-    scope.push("All");
-  }
-  statusScopeEl.textContent = `Scope: ${scope.join(" | ")}`;
-
-  const chapters = payload.chapters.length ? payload.chapters.join(", ") : "All";
-  statusChapterEl.textContent = `Chapters: ${chapters}`;
-}
-
-async function loadFilteredQuestions() {
-  const data = await fetchJSON("/api/filter", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(getFilterPayload()),
-  });
-  state.filteredQuestions = data.questions;
-  renderChecklist(state.chapterSourceEntries);
-  renderQuestions(data.questions);
-  updateStatus();
-}
-
-async function runSearch() {
-  const data = await fetchJSON("/api/search", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      ...getFilterPayload(),
-      query: searchInputEl.value.trim(),
-    }),
-  });
-  renderQuestions(data.questions, searchInputEl.value.trim());
-  updateStatus(data.count);
-}
-
-async function init() {
-  if (toggleAllChaptersEl) {
-    toggleAllChaptersEl.style.display = "none";
-  }
-  await refreshOptions();
-  await loadFilteredQuestions();
-
-  semesterEl.addEventListener("change", refreshOptions);
-  subjectEl.addEventListener("change", refreshOptions);
-  paperTypeEl.addEventListener("change", refreshOptions);
-  filterModeEl.addEventListener("change", updateModeVisibility);
-
-  document.getElementById("loadQuestions").addEventListener("click", loadFilteredQuestions);
-  document.getElementById("searchButton").addEventListener("click", runSearch);
-  document.getElementById("showAllButton").addEventListener("click", () => {
-    renderQuestions(state.filteredQuestions);
-    updateStatus();
-  });
-
-  searchInputEl.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      runSearch();
-    }
-  });
-
-  document.getElementById("copySelected").addEventListener("click", async () => {
-    const question = currentQuestion();
-    if (!question) {
-      alert("No question selected.");
-      return;
-    }
-    await copyText(formatQuestion(question));
-  });
-
-  document.getElementById("copyAll").addEventListener("click", async () => {
-    if (!state.filteredQuestions.length) {
-      alert("No filtered questions available.");
-      return;
-    }
-    await copyText(formatBulk(state.filteredQuestions));
-  });
-
-  document.getElementById("exportTxt").addEventListener("click", () => {
-    if (!state.filteredQuestions.length) {
-      alert("No filtered questions available.");
-      return;
-    }
-    const content = state.filteredQuestions.map((question, index) => {
-      const chapters = (question.chapter || []).join(", ") || "N/A";
-      return `Q${index + 1}\n` +
-        `Subject: ${question.subject ?? "N/A"}\n` +
-        `Chapter: ${chapters}\n` +
-        `Marks: ${question.mark ?? "N/A"}\n` +
-        `Paper Type: ${question.paper_type ?? "N/A"}\n` +
-        `Section: ${question.section ?? "N/A"}\n\n` +
-        `${question.question ?? ""}`;
-    }).join("\n\n------------------------------------------------------------------------\n\n");
-    downloadFile("filtered_questions.txt", content, "text/plain;charset=utf-8");
-  });
-
-  document.getElementById("exportJson").addEventListener("click", () => {
-    if (!state.filteredQuestions.length) {
-      alert("No filtered questions available.");
-      return;
-    }
-    downloadFile(
-      "filtered_questions.json",
-      `${JSON.stringify(state.filteredQuestions, null, 2)}\n`,
-      "application/json;charset=utf-8",
-    );
-  });
-
-  document.getElementById("openDatasetFolder").addEventListener("click", async () => {
-    const data = await fetchJSON("/api/open-dataset-folder", { method: "POST" });
-    if (!data.ok) {
-      alert(data.message || "Could not open folder.");
-    }
-  });
-
-  document.addEventListener("keydown", async (event) => {
-    if (event.ctrlKey && event.key.toLowerCase() === "f") {
-      event.preventDefault();
-      searchInputEl.focus();
-    }
-    if (event.ctrlKey && event.key.toLowerCase() === "c") {
-      event.preventDefault();
-      const question = currentQuestion();
-      if (question) {
-        await copyText(formatQuestion(question));
-      }
-    }
-    if (event.ctrlKey && event.key.toLowerCase() === "e") {
-      event.preventDefault();
-      if (state.filteredQuestions.length) {
-        downloadFile(
-          "filtered_questions.txt",
-          state.filteredQuestions.map((question, index) => `Q${index + 1}. ${question.question ?? ""}`).join("\n\n"),
-          "text/plain;charset=utf-8",
-        );
-      }
-    }
-  });
-}
-
-init().catch((error) => {
-  console.error(error);
-  alert("Failed to initialize the web app.");
+document.addEventListener('DOMContentLoaded', () => {
+  window.app = new StudyApp();
 });
