@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Qn Retrieval | Study Mode</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=asset_version) }}">
 </head>
+
 <body>
   <div class="app-shell">
     <header class="topbar">
       <p class="eyebrow">Smart Question Retrieval</p>
       <h1>Study Hub</h1>
-      
-      <div class="controls-row">
-        <div class="mode-toggle">
-          <button id="examModeBtn" class="mode-btn active">Exam Mode</button>
-          <button id="guidedModeBtn" class="mode-btn">Guided Mode</button>
-        </div>
-      </div>
 
       <div class="filters-grid">
         <div class="select-wrapper">
@@ -51,7 +46,11 @@
       <div class="search-container">
         <input id="searchInput" type="text" placeholder="Search for a question...">
         <button id="searchButton" title="Search">
-           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
         </button>
       </div>
     </header>
@@ -65,7 +64,8 @@
     <footer class="statusbar">
       <div id="statusCount">0 Questions found</div>
       <div id="statusScope">Scope: All</div>
-      <button id="openDatasetFolder" style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit;">Open Dataset</button>
+      <button id="openDatasetFolder"
+        style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit;">Open Dataset</button>
     </footer>
   </div>
 
@@ -76,25 +76,39 @@
         <span class="marks-tag"></span>
       </div>
       <div class="question-body"></div>
-      
+
       <div class="card-actions">
         <button class="copy-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
           Copy
         </button>
       </div>
 
       <div class="answer-wrapper" style="display: none;">
         <button class="show-answer-btn">
-           Show Answer
-           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          Show Answer
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </button>
         <div class="answer-content">
-          <div class="answer-section">
+          <div class="answer-header"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <div class="answer-section-title">Verified Answer</div>
-            <div class="answer-text"></div>
+            <div class="mode-toggle mini">
+              <button class="mode-btn exam active" data-mode="exam">Exam</button>
+              <button class="mode-btn guided" data-mode="guided">Guided</button>
+            </div>
           </div>
-          <div class="follow-up-section" style="margin-top: 1rem;">
+          <div class="answer-text"></div>
+
+          <div class="follow-up-section"
+            style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--border-color);">
             <div class="answer-section-title">Follow-up Knowledge check</div>
             <div class="follow-up-text" style="font-size: 0.9rem; color: var(--text-muted); font-style: italic;"></div>
           </div>
@@ -121,4 +135,5 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <script src="{{ url_for('static', filename='app.js', v=asset_version) }}"></script>
 </body>
+
 </html>

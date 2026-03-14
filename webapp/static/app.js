@@ -28,8 +28,6 @@ class StudyApp {
 
   cacheElements() {
     // Buttons
-    this.examModeBtn = document.getElementById('examModeBtn');
-    this.guidedModeBtn = document.getElementById('guidedModeBtn');
     this.searchBtn = document.getElementById('searchButton');
     this.openDatasetBtn = document.getElementById('openDatasetFolder');
 
@@ -56,9 +54,6 @@ class StudyApp {
   }
 
   bindEvents() {
-    this.examModeBtn.addEventListener('click', () => this.setStudyMode('exam'));
-    this.guidedModeBtn.addEventListener('click', () => this.setStudyMode('guided'));
-
     this.semSelect.addEventListener('change', () => this.handleFilterChange('semester'));
     this.subSelect.addEventListener('change', () => this.handleFilterChange('subject'));
     this.modeSelect.addEventListener('change', () => this.handleFilterChange('mode'));
@@ -93,13 +88,6 @@ class StudyApp {
     });
   }
 
-  setStudyMode(mode) {
-    this.state.studyMode = mode;
-    this.examModeBtn.classList.toggle('active', mode === 'exam');
-    this.guidedModeBtn.classList.toggle('active', mode === 'guided');
-    this.renderQuestions();
-  }
-
   async handleFilterChange(trigger) {
     this.state.semester = this.semSelect.value;
     this.state.subject = this.subSelect.value;
@@ -107,15 +95,15 @@ class StudyApp {
     this.state.paper_type = this.paperSelect.value;
     this.state.section = this.sectionSelect.value;
 
-    if (trigger === 'semester' || trigger === 'subject') {
-      await this.refreshDependentOptions();
+    if (trigger === 'semester' || trigger === 'subject' || trigger === 'mode') {
+      await this.refreshDependentOptions(trigger);
     }
 
     this.updateVisibility();
     this.autoLoad();
   }
 
-  async refreshDependentOptions() {
+  async refreshDependentOptions(trigger) {
     const params = new URLSearchParams({
       semester: this.state.semester || '',
       subject: this.state.subject || '',
@@ -129,8 +117,10 @@ class StudyApp {
       this.renderChapterChecklist(data.chapters);
     }
 
-    this.populateSelect(this.paperSelect, data.paper_types, 'Paper Type');
-    this.populateSelect(this.sectionSelect, data.sections, 'Section');
+    if (trigger === 'semester' || trigger === 'subject') {
+      this.populateSelect(this.paperSelect, data.paper_types, 'Paper Type');
+      this.populateSelect(this.sectionSelect, data.sections, 'Section');
+    }
 
     if (this.state.semester && !this.subSelect.value) {
       this.populateSelect(this.subSelect, data.subjects, 'Select Subject');
@@ -204,6 +194,7 @@ class StudyApp {
     this.state.questions.forEach((q, idx) => {
       const card = this.cardTemplate.content.cloneNode(true);
       const container = card.querySelector('.question-card');
+      let cardStudyMode = 'exam'; // Default to exam mode for each card
 
       container.querySelector('.subject-tag').textContent = q.subject;
       container.querySelector('.marks-tag').textContent = `${q.mark || q.marks || 0} Marks`;
@@ -224,9 +215,32 @@ class StudyApp {
         ansWrapper.style.display = 'block';
         const showBtn = container.querySelector('.show-answer-btn');
         const content = container.querySelector('.answer-content');
-        const text = container.querySelector('.answer-text');
+        const textDisplay = container.querySelector('.answer-text');
         const followUp = container.querySelector('.follow-up-text');
         const followUpSection = container.querySelector('.follow-up-section');
+        const examBtn = container.querySelector('.mode-btn.exam');
+        const guidedBtn = container.querySelector('.mode-btn.guided');
+
+        const updateAnswerDisplay = () => {
+          this.updateAnswerContent(q, textDisplay, followUp, followUpSection, cardStudyMode);
+          examBtn.classList.toggle('active', cardStudyMode === 'exam');
+          guidedBtn.classList.toggle('active', cardStudyMode === 'guided');
+          if (window.MathJax) {
+            window.MathJax.typesetPromise([container]);
+          }
+        };
+
+        examBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          cardStudyMode = 'exam';
+          updateAnswerDisplay();
+        });
+
+        guidedBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          cardStudyMode = 'guided';
+          updateAnswerDisplay();
+        });
 
         showBtn.addEventListener('click', () => {
           const isShowing = content.classList.toggle('show');
@@ -236,10 +250,7 @@ class StudyApp {
             `Show Answer <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
 
           if (isShowing) {
-            this.updateAnswerContent(q, text, followUp, followUpSection);
-            if (window.MathJax) {
-              window.MathJax.typesetPromise([container]);
-            }
+            updateAnswerDisplay();
           }
         });
       }
@@ -252,16 +263,54 @@ class StudyApp {
     }
   }
 
-  updateAnswerContent(q, textEl, followUpEl, followUpSection) {
+  updateAnswerContent(q, textEl, followUpEl, followUpSection, mode) {
     const data = q.answer_data;
-    if (this.state.studyMode === 'exam') {
-      textEl.textContent = data.exam_mode || 'No exam-mode answer available.';
-      followUpEl.textContent = data.exam_f_question || '';
-    } else {
-      textEl.textContent = data.guided_mode || 'No guided-mode explanation available.';
-      followUpEl.textContent = data.guided_f_question || '';
-    }
+    const rawContent = mode === 'exam' ?
+      (data.exam_mode || 'No exam-mode answer available.') :
+      (data.guided_mode || 'No guided-mode explanation available.');
+
+    textEl.innerHTML = this.formatContent(rawContent);
+    followUpEl.textContent = mode === 'exam' ? (data.exam_f_question || '') : (data.guided_f_question || '');
     followUpSection.style.display = followUpEl.textContent ? 'block' : 'none';
+  }
+
+  formatContent(text) {
+    if (!text) return '';
+
+    const lines = text.split('\n');
+    let inTable = false;
+    let tableHtml = '';
+    let result = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line.includes('|') && line.split('|').length > 1) {
+        const cols = line.split('|').map(c => c.trim());
+        if (!inTable) {
+          inTable = true;
+          tableHtml = '<table><thead><tr>';
+          cols.forEach(c => tableHtml += `<th>${c}</th>`);
+          tableHtml += '</tr></thead><tbody>';
+        } else {
+          tableHtml += '<tr>';
+          cols.forEach(c => tableHtml += `<td>${c}</td>`);
+          tableHtml += '</tr>';
+        }
+      } else {
+        if (inTable) {
+          tableHtml += '</tbody></table>';
+          result.push(tableHtml);
+          inTable = false;
+        }
+        if (line) result.push(line);
+      }
+    }
+    if (inTable) {
+      tableHtml += '</tbody></table>';
+      result.push(tableHtml);
+    }
+
+    return result.join('<br>');
   }
 
   async openDataset() {
