@@ -249,6 +249,15 @@ class StudyApp {
       let cardStudyMode = 'exam'; // Default to exam mode for each card
 
       container.querySelector('.subject-tag').textContent = q.subject;
+
+      const paperTag = container.querySelector('.paper-tag');
+      if (q.paper_type) {
+        paperTag.textContent = q.paper_type;
+        paperTag.style.display = 'inline-block';
+      } else {
+        paperTag.style.display = 'none';
+      }
+
       container.querySelector('.marks-tag').textContent = `${q.mark || q.marks || 0} Marks`;
       container.querySelector('.question-body').textContent = q.question;
 
@@ -345,8 +354,17 @@ class StudyApp {
   formatContent(text) {
     if (!text) return '';
 
-    // Refined formatting to match Image 2
-    const lines = text.split('\n');
+    // 1. Basic Markdown Parsing
+    let parsedText = text
+      // Bold: **text**
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // Italic: *text* (avoiding match if inside bold, simplified regex)
+      .replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
+      // Bullet points: * or - at start of line
+      .replace(/^[*-]\s+(.*)$/gm, '• $1');
+
+    // 2. Table Parsing (preserve existing logic)
+    const lines = parsedText.split('\n');
     let inTable = false;
     let tableHtml = '';
     let result = [];
