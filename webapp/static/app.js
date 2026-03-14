@@ -30,7 +30,11 @@ class StudyApp {
     // Buttons
     this.searchBtn = document.getElementById('searchButton');
     this.openDatasetBtn = document.getElementById('openDatasetFolder');
-    this.showStatsBtn = document.getElementById('showStatsBtn');
+
+    // Progress Ring
+    this.quickProgressBtn = document.getElementById('quickProgressBtn');
+    this.progressCircle = this.quickProgressBtn ? this.quickProgressBtn.querySelector('.progress-ring__circle') : null;
+    this.progressText = this.quickProgressBtn ? this.quickProgressBtn.querySelector('.progress-text') : null;
 
     // Modal
     this.statsModal = document.getElementById('statsModal');
@@ -72,7 +76,9 @@ class StudyApp {
     });
 
     this.openDatasetBtn.addEventListener('click', () => this.openDataset());
-    this.showStatsBtn.addEventListener('click', () => this.showStats());
+    if (this.quickProgressBtn) {
+      this.quickProgressBtn.addEventListener('click', () => this.showStats());
+    }
     this.closeModalBtn.addEventListener('click', () => this.statsModal.style.display = 'none');
     window.addEventListener('click', (e) => {
       if (e.target === this.statsModal) this.statsModal.style.display = 'none';
@@ -110,8 +116,36 @@ class StudyApp {
       await this.refreshDependentOptions(trigger);
     }
 
+    if (trigger === 'semester' || trigger === 'subject') {
+      this.fetchSubjectBackground();
+    }
+
     this.updateVisibility();
     this.autoLoad();
+  }
+
+  async fetchSubjectBackground() {
+    if (!this.state.subject) {
+      this.state.subjectQuestions = [];
+      this.updateGlobalProgress();
+      return;
+    }
+    try {
+      const resp = await fetch('/api/filter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          semester: this.state.semester,
+          subject: this.state.subject,
+          filter_mode: 'all' // Ignore chapter/paper filters
+        })
+      });
+      const data = await resp.json();
+      this.state.subjectQuestions = data.questions || [];
+      this.updateGlobalProgress();
+    } catch (err) {
+      console.error('Failed to fetch background subject questions', err);
+    }
   }
 
   async refreshDependentOptions(trigger) {
@@ -187,9 +221,14 @@ class StudyApp {
       });
       const data = await resp.json();
       this.state.questions = data.questions;
+      if (endpoint === '/api/filter' && !this.state.query) {
+        // When doing a clean filter without search, update subject total
+        this.state.subjectTotal = data.filtered_count || data.count;
+      }
       this.renderQuestions();
       this.statusCount.textContent = `${data.count} Questions found`;
       this.statusScope.textContent = `Scope: ${this.state.subject || 'All'}`;
+      this.updateGlobalProgress();
     } catch (err) {
       console.error('Fetch failed', err);
     }
@@ -215,6 +254,7 @@ class StudyApp {
 
       // Solved logic
       const solvedCheckbox = container.querySelector('.solved-checkbox');
+      // ID MUST include subject to be globally unique for the subject
       const qId = q._id || `${q.subject}_${q.question.substring(0, 20)}`;
       solvedCheckbox.checked = solvedIds.includes(qId);
       solvedCheckbox.addEventListener('change', () => {
@@ -225,6 +265,7 @@ class StudyApp {
           currentSolved = currentSolved.filter(id => id !== qId);
         }
         localStorage.setItem('solved_questions', JSON.stringify(currentSolved));
+        this.updateGlobalProgress();
       });
 
       // Copy logic
@@ -345,21 +386,56 @@ class StudyApp {
     return result.join('\n');
   }
 
+  updateGlobalProgress() {
+    if (!this.progressCircle || !this.progressText) return;
+
+    const solvedIds = JSON.parse(localStorage.getItem('solved_questions') || '[]');
+    const currentSubject = this.state.subject;
+    const globalQ = this.state.subjectQuestions || [];
+
+    if (!currentSubject || !globalQ.length) {
+      this.quickProgressBtn.style.display = 'none';
+      return;
+    }
+    this.quickProgressBtn.style.display = 'flex';
+
+    const totalCount = globalQ.length;
+    let actualSolvedCount = 0;
+
+    // Better to count exactly how many of the solved IDs are actually in the global dataset
+    // (In case of orphaned solved IDs from previous sessions/data changes)
+    globalQ.forEach(q => {
+      const qId = q._id || `${q.subject}_${q.question.substring(0, 20)}`;
+      if (solvedIds.includes(qId)) actualSolvedCount++;
+    });
+
+    const percent = Math.round((actualSolvedCount / totalCount) * 100) || 0;
+    const radius = this.progressCircle.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+    const offset = circumference - (percent / 100) * circumference;
+
+    this.progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    this.progressCircle.style.strokeDashoffset = offset;
+    this.progressText.textContent = `${percent}%`;
+  }
+
   showStats() {
     const solvedIds = JSON.parse(localStorage.getItem('solved_questions') || '[]');
-    const questions = this.state.questions;
+    const globalQ = this.state.subjectQuestions || [];
 
-    if (!questions.length) {
-      this.statsContainer.innerHTML = '<p style="text-align:center; padding: 2rem;">Please filter/search questions first to view progress.</p>';
+    if (!globalQ.length) {
+      this.statsContainer.innerHTML = '<p style="text-align:center; padding: 2rem;">Please select a subject first to view progress.</p>';
       this.statsModal.style.display = 'flex';
       return;
     }
 
     const currentSubject = this.state.subject || 'All Filtered';
+    const totalCount = globalQ.length;
+
     let solvedCount = 0;
     const chapterStats = {};
 
-    questions.forEach(q => {
+    globalQ.forEach(q => {
       const qId = q._id || `${q.subject}_${q.question.substring(0, 20)}`;
       const isSolved = solvedIds.includes(qId);
       if (isSolved) solvedCount++;
@@ -372,16 +448,20 @@ class StudyApp {
       });
     });
 
-    const totalCount = questions.length;
+    const percent = Math.round((solvedCount / totalCount) * 100) || 0;
+
     let html = `
       <div class="stats-item">
         <div class="stat-row">
           <span style="font-weight:700; color:#fff;">Subject Progress: ${currentSubject}</span>
-          <span style="font-weight:700; color:var(--accent-primary);">${solvedCount} / ${totalCount} (${Math.round(solvedCount / totalCount * 100)}%)</span>
+          <span style="font-weight:700; color:var(--accent-primary);">${solvedCount} / ${totalCount} (${percent}%)</span>
         </div>
         <div class="progress-bar-container" style="height: 12px; margin-top: 0.5rem;">
-          <div class="progress-bar" style="width: ${(solvedCount / totalCount) * 100}%"></div>
+          <div class="progress-bar" style="width: ${percent}%"></div>
         </div>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+           Overall progress for this subject.
+        </p>
       </div>
       <div style="margin: 2rem 0 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
         <h3 style="font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Chapter-wise Breakdown</h3>

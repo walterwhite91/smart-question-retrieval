@@ -64,12 +64,20 @@
     <footer class="statusbar">
       <div id="statusCount">0 Questions found</div>
       <div id="statusScope">Scope: All</div>
-      <button id="showStatsBtn"
-        style="background:var(--accent-soft); border:1px solid var(--accent-primary); color:var(--accent-primary); cursor:pointer; padding: 2px 8px; border-radius: 4px; font-weight:600;">View
-        Progress</button>
       <button id="openDatasetFolder"
         style="background:none; border:none; color:inherit; cursor:pointer; font-size:inherit;">Open Dataset</button>
     </footer>
+
+    <!-- Floating Circular Progress -->
+    <div id="quickProgressBtn" class="floating-progress" title="View Progress">
+      <svg class="progress-ring" width="50" height="50">
+        <circle class="progress-ring__circle-bg" stroke="var(--border-color)" stroke-width="4" fill="transparent" r="20"
+          cx="25" cy="25" />
+        <circle class="progress-ring__circle" stroke="var(--accent-primary)" stroke-width="4" fill="transparent" r="20"
+          cx="25" cy="25" />
+      </svg>
+      <span class="progress-text">0%</span>
+    </div>
   </div>
 
   <!-- Stats Modal -->
