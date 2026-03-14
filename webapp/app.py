@@ -41,7 +41,7 @@ def sanitize_question(question: QObj) -> QObj:
 
 def parse_state(payload: dict[str, Any]) -> FilterState:
     semester = payload.get("semester")
-    semester_value = int(semester) if str(semester).strip() else None
+    semester_value = int(semester) if semester not in (None, "") and str(semester).strip() else None
     chapters = payload.get("chapters") or []
     if not isinstance(chapters, list):
         chapters = []
