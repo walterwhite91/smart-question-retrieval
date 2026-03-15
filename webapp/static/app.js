@@ -358,8 +358,6 @@ class StudyApp {
     let parsedText = text
       // Bold: **text**
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      // Italic: *text* (avoiding match if inside bold, simplified regex)
-      .replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
       // Bullet points: * or - at start of line
       .replace(/^[*-]\s+(.*)$/gm, '• $1');
 
