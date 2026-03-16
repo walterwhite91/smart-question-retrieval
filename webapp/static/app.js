@@ -354,30 +354,54 @@ class StudyApp {
   formatContent(text) {
     if (!text) return '';
 
-    // 1. Basic Markdown Parsing
-    let parsedText = text
-      // Bold: **text**
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      // Bullet points: * or - at start of line
-      .replace(/^[*-]\s+(.*)$/gm, '• $1');
-
-    // 2. Table Parsing (preserve existing logic)
-    const lines = parsedText.split('\n');
+    const lines = text.split('\n');
     let inTable = false;
+    let inCode = false;
+    let codeHtml = '';
     let tableHtml = '';
     let result = [];
 
     for (let i = 0; i < lines.length; i++) {
-      const line = lines[i].trim();
-      // Skip purely decorative lines if they look like table separators that aren't real pipes
-      if (line.includes('|') && line.split('|').length > 1) {
-        const cols = line.split('|').filter(c => c.trim().length > 0).map(c => c.trim());
-        // If it's a separator line (---), skip it or handle it
-        if (cols.every(c => c.match(/^-+$/))) continue;
+      const line = lines[i];
+      const trimmedLine = line.trim();
+
+      // Start or end of code block
+      if (trimmedLine.startsWith('```')) {
+        if (!inCode) {
+          inCode = true;
+          codeHtml = '<div class="code-container"><pre><code>\n';
+        } else {
+          inCode = false;
+          codeHtml += '</code></pre></div>';
+          result.push(codeHtml);
+        }
+        continue;
+      }
+
+      if (inCode) {
+        // Escape HTML in code blocks to prevent execution/layout issues
+        const escapedLine = line.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        codeHtml += escapedLine + '\n';
+        continue;
+      }
+
+      // Inline markdown parsing
+      let parsedLine = line
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/^\s*[*-]\s+(.*)$/, '• $1');
+
+      // Table parsing logic
+      if (parsedLine.includes('|') && parsedLine.split('|').length > 1) {
+        const cols = parsedLine.split('|').filter(c => c.trim().length > 0).map(c => c.trim());
+
+        // Strip out matched html tags before checking if it's a separator line
+        const rawCols = cols.map(c => c.replace(/<[^>]+>/g, ''));
+        if (rawCols.length > 0 && rawCols.every(c => c.match(/^-+$/))) continue;
 
         if (!inTable) {
           inTable = true;
-          tableHtml = '<table><thead><tr>';
+          tableHtml = '<div class="table-container"><table><thead><tr>';
           cols.forEach(c => tableHtml += `<th>${c}</th>`);
           tableHtml += '</tr></thead><tbody>';
         } else {
@@ -387,16 +411,22 @@ class StudyApp {
         }
       } else {
         if (inTable) {
-          tableHtml += '</tbody></table>';
+          tableHtml += '</tbody></table></div>';
           result.push(tableHtml);
           inTable = false;
         }
-        result.push(line);
+        result.push(parsedLine);
       }
     }
+
     if (inTable) {
-      tableHtml += '</tbody></table>';
+      tableHtml += '</tbody></table></div>';
       result.push(tableHtml);
+    }
+
+    if (inCode) {
+      codeHtml += '</code></pre></div>';
+      result.push(codeHtml);
     }
 
     return result.join('\n');
