@@ -23,7 +23,7 @@ The frontend provides a premium, responsive "Study Hub" interface, allowing stud
 - **Smart Progress Tracking**: Mark questions as "Solved." Your progress is saved locally and instantly reflects in a beautiful floating circular progress ring that calculates progress against the entire subject.
 - **Detailed Progress Dashboard**: A statistics modal showcases both overall subject progress and a specific, localized chapter-wise breakdown.
 - **Premium UI**: Minimalistic dark mode with glassmorphism effects, fluid animations, and focused reading layouts.
-- **Math & Truth Tables**: Out-of-the-box MathJax rendering for LaTeX equations and a custom CSS parser for formatting text-based truth tables.
+- **Math, Tables & Code Blocks**: Out-of-the-box MathJax rendering for LaTeX equations and a custom JS/CSS parser for formatting text-based tables and code blocks.
 - **Copy answers**: One-click copying of answers to the clipboard.
 
 ---
