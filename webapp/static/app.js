@@ -357,6 +357,7 @@ class StudyApp {
     const lines = text.split('\n');
     let inTable = false;
     let inCode = false;
+    let inMathMode = false;
     let codeHtml = '';
     let tableHtml = '';
     let result = [];
@@ -385,19 +386,36 @@ class StudyApp {
         continue;
       }
 
+      // Track multi-line math blocks
+      if (trimmedLine === '\\[' || trimmedLine === '\\(' || trimmedLine.startsWith('\\begin{')) {
+        inMathMode = true;
+      }
+
       // Inline markdown parsing
       let parsedLine = line
         .replace(/`([^`]+)`/g, '<code>$1</code>')
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/^\s*[*-]\s+(.*)$/, '• $1');
 
+      // Detect if we should attempt table parsing
+      const trimLine = parsedLine.trim();
+      const hasPipe = trimLine.startsWith('|') && trimLine.endsWith('|') && trimLine.split('|').length > 2;
+      
+      // Additional safety check to skip mathy lines even if they have weird formatting
+      const isMathyLine = parsedLine.includes('\\(') || parsedLine.includes('\\[') || parsedLine.includes('\\begin') || parsedLine.endsWith('\\\\') || /\|[a-zA-Z0-9_]+\|/.test(parsedLine);
+      
+      let shouldParseTable = hasPipe && !inMathMode && !isMathyLine;
+
       // Table parsing logic
-      if (parsedLine.includes('|') && parsedLine.split('|').length > 1) {
+      if (shouldParseTable) {
         const cols = parsedLine.split('|').filter(c => c.trim().length > 0).map(c => c.trim());
 
         // Strip out matched html tags before checking if it's a separator line
         const rawCols = cols.map(c => c.replace(/<[^>]+>/g, ''));
-        if (rawCols.length > 0 && rawCols.every(c => c.match(/^-+$/))) continue;
+        if (rawCols.length > 0 && rawCols.every(c => c.match(/^-+$/))) {
+            // It's a separator line, skip appending to table
+            continue;
+        }
 
         if (!inTable) {
           inTable = true;
@@ -416,6 +434,11 @@ class StudyApp {
           inTable = false;
         }
         result.push(parsedLine);
+      }
+
+      // Close multi-line math blocks
+      if (trimmedLine === '\\]' || trimmedLine === '\\)' || trimmedLine.startsWith('\\end{')) {
+        inMathMode = false;
       }
     }
 
